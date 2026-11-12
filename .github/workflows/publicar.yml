@@ -1,0 +1,43 @@
+name: publicar
+# Publica lo aprobado (mergeado a main): la historia apenas se aprueba, el post a las 19:30 (hora Argentina).
+on:
+  push:
+    branches: [main]
+    paths: ['queue/**']
+  schedule:
+    - cron: '30 22 * * *'   # 19:30 en Argentina (UTC-3). GitHub puede demorarlo unos minutos.
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Simulación (no publica nada)'
+        type: boolean
+        default: true
+permissions:
+  contents: write
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -q requests
+      - name: Publicar en Instagram
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+        run: python scripts/publicar.py
+      - name: Guardar estado
+        if: always()
+        run: |
+          git config user.name "base-bot"
+          git config user.email "base-bot@users.noreply.github.com"
+          git add queue/*/estado.json 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Estado de publicación" && git push)
