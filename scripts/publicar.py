@@ -14,6 +14,7 @@ Variables de entorno (en GitHub van como Secrets / Variables):
   HORA_POST       opcional, por defecto 19:30
   DRY_RUN=1       no publica nada, solo muestra qué haría
   VERIFICAR=1     solo prueba el token y el ID (no publica)
+  Nunca publica entre las 00:00 y las 09:00 (hora Argentina), aunque GitHub demore una corrida.
   AHORA           opcional, solo para pruebas: simula la hora (ej. 2026-11-14T16:00)
 """
 import datetime as dt, json, os, sys, time
@@ -172,6 +173,10 @@ def main():
     ahora = dt.datetime.fromisoformat(os.environ['AHORA']).replace(tzinfo=ART) if os.environ.get('AHORA') else dt.datetime.now(ART)
     hoy = ahora.date()
     hh, mm = map(int, os.environ.get('HORA_POST', '19:30').split(':'))
+    if ahora.hour < 9:
+        # Freno nocturno: si GitHub demora una corrida y cae de madrugada, no se publica nada
+        print(f'Son las {ahora:%H:%M} en Argentina: no se publica entre las 00:00 y las 09:00.')
+        return
     fallas = 0
     for carpeta in sorted(os.listdir(COLA)) if os.path.isdir(COLA) else []:
         try:
