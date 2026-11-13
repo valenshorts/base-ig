@@ -37,4 +37,12 @@ Los dos posts del día tienen que ser de temas distintos y formatos distintos. V
 9. Esperá unos minutos a que termine el check «revisar» del PR. Si falla, leé el comentario, corregí, pusheá de nuevo a la misma rama y repetí hasta que pase (ahí se mergea solo).
 10. Avisale a Valentín con PushNotification: «Contenido de mañana listo y aprobado: <tema 1> + <tema 2> + reel. Sale solo de 11:00 a 21:30». Si algo falló y no quedó aprobado, avisale qué pasó.
 
+## Campaña activa: SORTEO «3 creatinas» (14/11 al 28/11/2026)
+Archivos en `campanas/sorteo-creatinas/`: `sorteo_creatinas.py` (post de 3 slides + historia de lanzamiento, ya diseñados y revisados), `texto_sorteo.txt` (texto del post con las bases) y `bases.md`. Premios: 2 Creatina Gold 300 g + 1 Creatina Star 300 g, envío gratis a todo el país. Cierre: viernes 27/11 23:59. Sorteo en vivo: sábado 28/11.
+
+- **Contenido del 14/11:** el post de las 13:00 es el sorteo. Copiá `campanas/sorteo-creatinas/sorteo_creatinas.py` a `kit/2026-11-14_sorteo.py`, renderizalo y usá `sorteo_post_1..3.png` como post1 con `texto_sorteo.txt` tal cual (sin cambiar las bases ni las fechas). La historia de las 15:00 es `sorteo_historia.png`. El reel de las 20:30 anuncia el sorteo (4 o 5 imágenes verticales en el mismo estilo: premios, 3 pasos, «hasta el 27/11», «participá en el post del sorteo») y su texto aclara que **se participa comentando en el post del sorteo, no en el reel**. El resto del día, normal.
+- **Del 15/11 al 27/11:** la historia de las 18:00 es SIEMPRE un recordatorio del sorteo con cuenta regresiva («Quedan N días», calculado hasta el 27/11 inclusive), con las dos creatinas en tiles grises y «participá en el post del sorteo». Variá el texto y el diseño cada día. El 27/11 la de las 21:30 dice «Último día: cierra hoy a las 23:59».
+- **Contenido del 28/11:** la historia de las 11:00 dice «Hoy sorteamos en vivo las 3 creatinas: atentos a nuestras historias». NO publiques ganadores ni inventes nombres: el sorteo y el anuncio los hace Valentín.
+- No contradigas las bases en ningún otro contenido. No muestres precios en las piezas del sorteo.
+
 Si te quedás corto de tiempo o de uso, priorizá en este orden: post 19:30, post 13:00, reel, historias.
