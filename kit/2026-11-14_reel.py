@@ -24,7 +24,8 @@ ST = '''<style>
 .big{position:absolute;left:80px;right:80px;font-size:54px;font-weight:900;text-transform:uppercase;line-height:1.1;text-align:center}
 .big span{color:var(--l)}
 .no{position:absolute;left:80px;right:80px;text-align:center;font-size:36px;font-weight:800;color:#d6d6d8}
-.no b{color:#fff;background:#2a2a2d;padding:4px 12px}
+.no b{color:var(--l)}
+.st,.ship,.dt,.wa,.no{right:140px}
 .wa{position:absolute;left:80px;right:80px;text-align:center;font-size:27px;font-weight:700;letter-spacing:1.5px;color:#d6d6d8}
 .wa span{color:var(--l)}
 </style>'''
@@ -46,7 +47,7 @@ r2 += '<div class="t" style="top:360px;font-size:104px">2 Gold +<br><span class=
 r2 += ('<div class="tiles tz" style="top:640px;--w:440px;--h:500px;--g:20px">'
        + tile('creatina_gold_300g', '×2', cf('Creatina Gold 300 g', 30))
        + tile('creatina_star_300g', '×1', cf('Creatina Star 300 g', 30)) + '</div>')
-r2 += f'<div class="ship" style="top:1360px">{E("🚚")}<p>Envío gratis<br><span>a todo el país</span></p></div>'
+r2 += f'<div class="ship" style="top:1330px">{E("🚚")}<p>Envío gratis<br><span>a todo el país</span></p></div>'
 r2 += LEG
 
 # 3 · 3 PASOS
@@ -57,7 +58,7 @@ top = 600
 for i, (e, n) in enumerate(pasos, 1):
     r3 += f'<div class="st" style="top:{top}px"><div class="k">{E(e)}<i>{i}</i></div><div class="n">{n}</div></div>'
     top += 290
-r3 += f'<div class="wa" style="top:1490px;font-size:30px">Más comentarios con amigos distintos = <span>más chances</span></div>'
+r3 += f'<div class="wa" style="top:1460px;font-size:30px">Más comentarios con amigos distintos<br>= <span>más chances</span></div>'
 r3 += LEG
 
 # 4 · FECHAS
@@ -65,16 +66,16 @@ r4 = ST + '<div class="eb" style="top:300px">Fechas</div>'
 r4 += '<div class="t" style="top:360px;font-size:104px">No te la<br><span class="box">pierdas</span></div>'
 r4 += f'<div class="dt on" style="top:720px">{E("⏳")}<p><b>Participás hasta el</b><span>VIE 27/11</span><b style="margin-top:8px">a las 23:59</b></p></div>'
 r4 += f'<div class="dt" style="top:1060px">{E("🎲")}<p><b>Sorteo en vivo</b><span>SÁB 28/11</span><b style="margin-top:8px">por historias</b></p></div>'
-r4 += '<div class="no" style="top:1420px">Mayores de 18 · Argentina · <b>sin compra</b></div>'
+r4 += '<div class="no" style="top:1360px">Mayores de 18 · Argentina<br><b>sin obligación de compra</b></div>'
 r4 += LEG
 
 # 5 · CTA
 r5 = ST + '<div class="eb" style="top:300px">Participá</div>'
 r5 += '<div class="t" style="top:360px;font-size:100px">Entrá al<br><span class="box">post del</span><br><span class="box">sorteo</span></div>'
-r5 += f'<div class="hero" style="top:800px;height:300px">{E("👆",240)}</div>'
-r5 += '<div class="no" style="top:1140px">Comentá <b>en el post</b>, no en este reel</div>'
-r5 += f'<div class="btn" style="left:80px;right:80px;justify-content:center;top:1300px;font-size:36px;padding:26px 30px">{E("🛒",36)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
-r5 += f'<div class="wa" style="top:1450px">{E("💬",26)} WHATSAPP <span>11 2178-9431</span> · SOLO MENSAJES</div>'
+r5 += f'<div class="hero" style="top:800px;height:300px">{E("📲",240)}</div>'
+r5 += '<div class="no" style="top:1120px">Comentá <b>en el post</b>, no en este reel</div>'
+r5 += f'<div class="btn" style="left:80px;right:140px;justify-content:center;top:1230px;font-size:32px;padding:26px 30px">{E("🛒",36)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
+r5 += f'<div class="wa" style="top:1370px">{E("💬",26)} WHATSAPP <span>11 2178-9431</span> · SOLO MENSAJES</div>'
 r5 += LEG
 
 print(render([page(1, r, nxt=False, total=1, story=True, legal=False) for r in (r1, r2, r3, r4, r5)], f'{OUT}/reel', 1080, 1920))

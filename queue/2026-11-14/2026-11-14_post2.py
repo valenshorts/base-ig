@@ -56,17 +56,17 @@ s1 += f'''<div class="lbl" style="top:640px">
 s1 += f'''<div class="side" style="top:660px">
  <div>{E("🥄")}<p>Porción</p></div>
  <div>{E("📋")}<p>Ingredientes</p></div>
- <div>{E("🔢")}<p>Porciones por envase</p></div>
- <div>{E("🏷️")}<p>Precio por porción</p></div></div>'''
+ <div>{E("📦")}<p>Proteína del envase</p></div>
+ <div>{E("🏷️")}<p>Precio por gramo</p></div></div>'''
 s1 += f'<div class="cta" style="top:1208px;font-size:29px"><span>4 cosas</span> para mirar {E("👉",29)}</div>'
 
 # 2 · PORCIÓN ≠ PROTEÍNA
 s2 = ST + '<div class="eb" style="top:200px">1 · La porción</div>'
 s2 += '<div class="t" style="top:250px;font-size:80px">Un scoop no es<br><span class="box">todo proteína</span></div>'
 s2 += f'''<div class="mth" style="top:510px">
- <div class="bx panel" style="position:relative">{E("🥄")}<b>30 g</b><span>Porción</span></div><div class="op">→</div>
- <div class="bx panel" style="position:relative">{E("💪")}<b>24 g</b><span>Proteína</span></div><div class="op">=</div>
- <div class="bx rs">{E("🎯")}<b>80 %</b><span>Proteína</span></div></div>'''
+ <div class="bx panel" style="position:relative"><b style="font-size:76px">24 g</b><span>Proteína</span></div><div class="op">÷</div>
+ <div class="bx panel" style="position:relative">{E("🥄")}<b>30 g</b><span>Porción</span></div><div class="op">=</div>
+ <div class="bx rs"><b style="font-size:84px">80 %</b><span>Proteína</span></div></div>'''
 s2 += '<div class="fx" style="top:790px">EJEMPLO · <b>proteína ÷ porción × 100</b></div>'
 pts = [('🧩', 'El resto son <b>carbohidratos, grasas, saborizantes y otros ingredientes</b>. Por eso el % cambia de una marca a otra.'),
        ('⚖️', '<b>Cada marca usa su propio tamaño de porción.</b> Para comparar dos proteínas, <em>calculá el % de cada una</em>.')]
@@ -74,14 +74,14 @@ top = 880
 for k, t in pts:
     s2 += f'<div class="pt" style="top:{top}px"><div class="k">{E(k)}</div><div class="n">{t}</div></div>'
     top += 150
-s2 += f'<div class="cta" style="top:1205px">Deslizá: <span>3 cosas más</span> {E("👉",30)}</div>'
+s2 += f'<div class="cta" style="top:1205px"><span>3 cosas más</span> {E("👉",30)}</div>'
 
 # 3 · INGREDIENTES, PORCIONES, PRECIO
 s3 = ST + '<div class="eb" style="top:200px">2, 3 y 4</div>'
 s3 += '<div class="t" style="top:250px;font-size:84px">Lo que casi<br><span class="box">nadie mira</span></div>'
 rcs = [('📋', '2', 'El orden importa', 'Los ingredientes van <b>de mayor a menor cantidad</b>. En una whey, lo primero debería ser la proteína (ej.: concentrado de proteína de suero).'),
-       ('🔢', '3', 'Porciones por envase', 'Fijate <b>cuántas porciones trae</b>: dos potes del mismo peso pueden rendir distinto si la porción cambia.'),
-       ('🏷️', '4', 'Precio por porción', '<b>Precio ÷ porciones</b> = lo que te sale cada toma. Así comparás de verdad.')]
+       ('📦', '3', 'Proteína del envase', '<b>Porciones × g de proteína por porción</b> = cuánta proteína trae el pote entero.'),
+       ('🏷️', '4', 'Precio por gramo', '<b>Precio ÷ proteína del envase</b> = lo que pagás cada gramo de proteína. Así comparás de verdad.')]
 top = 510
 for em, n, nm, ing in rcs:
     s3 += f'<div class="rc panel" style="top:{top}px"><div class="ic">{E(em)}<i>{n}</i></div><div><div class="nm">{nm}</div><div class="in">{ing}</div></div></div>'

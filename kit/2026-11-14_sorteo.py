@@ -51,7 +51,7 @@ s1 += f'<div class="cta" style="top:1185px">Deslizá y mirá cómo participar {E
 # 2 · CÓMO PARTICIPAR
 s2 = ST + '<div class="eb" style="top:200px">Cómo participar</div>'
 s2 += '<div class="t" style="top:250px;font-size:84px">3 pasos<br><span class="box">y ya estás</span></div>'
-pasos = [('👤', 'Seguí a @basesuplementos.ar', 'La cuenta tiene que estar siguiéndonos al momento del sorteo.'),
+pasos = [('👤', 'Seguí a @basesuplementos.ar', 'Desde tu cuenta personal y real de Instagram.'),
          ('❤️', 'Dale me gusta a este post', 'En este mismo post del sorteo.'),
          ('💬', 'Comentá etiquetando a 2 amigos', 'Cada comentario con <b>2 amigos distintos</b> es una chance más.')]
 top = 520
@@ -69,8 +69,8 @@ bases = [('⏳', 'Cierre', 'Viernes 27/11 a las 23:59.'),
          ('🪪', 'Requisitos', 'Mayores de 18 años, con domicilio en Argentina.')]
 s3 += '<div class="bc" style="top:520px">' + ''.join(f'<div>{E(e)}<p><b>{t}</b>{d}</p></div>' for e, t, d in bases) + '</div>'
 s3 += ('<div class="fine" style="top:960px">Sin obligación de compra. Los ganadores se anuncian el 28/11 y tienen 72 h para responder '
-       'por mensaje directo; si no, se sortea un suplente. Este sorteo no está patrocinado, avalado ni administrado por Instagram. '
-       'Bases completas en el texto del post.</div>')
+       'por mensaje directo; si no, el premio pasa a un suplente. Este sorteo no está patrocinado, avalado ni administrado por Instagram. '
+       'Resumen de bases en el texto del post.</div>')
 s3 += f'<div class="btn" style="left:80px;top:1112px">{E("🛒",30)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
 s3 += f'<div style="position:absolute;left:80px;top:1207px;font-size:23px;font-weight:700;letter-spacing:1.5px;color:#d6d6d8">{E("💬",22)} CONSULTAS POR WHATSAPP <span style="color:var(--l)">11 2178-9431</span> · SOLO MENSAJES</div>'
 
@@ -82,7 +82,7 @@ h += '<div class="t" style="top:325px;font-size:92px">3 creatinas<br><span class
 h += ('<div class="tiles tz" style="top:600px;--w:430px;--h:420px;--g:26px">'
       + tile('creatina_gold_300g', '×2', cf('Creatina Gold 300 g', 24))
       + tile('creatina_star_300g', '×1', cf('Creatina Star 300 g', 24)) + '</div>')
-h += f'<div class="tip" style="top:1150px;font-size:34px">Entrá al <b>último post</b> del perfil y participá: seguí, dale me gusta y etiquetá a 2 amigos {E("👇",34)}</div>'
+h += f'<div class="tip" style="top:1150px;font-size:34px">Entrá al <b>post del sorteo</b> en el perfil: seguí, dale me gusta y comentá etiquetando a 2 amigos {E("👇",34)}</div>'
 h += f'''<div class="date" style="top:1400px">
  <div>{E("⏳")}<p><b>Hasta el</b><span>VIE 27/11</span></p></div>
  <div class="on">{E("🚚")}<p><b>Envío gratis</b><span>A TODO EL PAÍS</span></p></div></div>'''
