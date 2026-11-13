@@ -1,11 +1,14 @@
 name: publicar
-# Publica lo aprobado (mergeado a main): la historia apenas se aprueba, el post a las 19:30 (hora Argentina).
+# Publica lo aprobado (mergeado a main): cada post, historia o reel a su hora (plan.json, hora Argentina).
 on:
   push:
     branches: [main]
     paths: ['queue/**']
   schedule:
-    - cron: '30 22 * * *'   # 19:30 en Argentina (UTC-3). GitHub puede demorarlo unos minutos.
+    # Cada 30 minutos de 10:05 a 23:35 hora Argentina (UTC-3). Cada contenido sale en la primera corrida
+    # después de su hora. GitHub puede demorar las corridas programadas unos minutos.
+    - cron: '5,35 13-23 * * *'
+    - cron: '5,35 0-2 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

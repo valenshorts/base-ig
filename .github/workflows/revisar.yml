@@ -37,19 +37,31 @@ jobs:
             echo "### Vista previa"
             RAW="https://raw.githubusercontent.com/${{ github.repository }}/${{ github.event.pull_request.head.sha }}"
             for d in $DIRS; do
-              for f in $(ls $d | grep -E '^post_[0-9]+\.jpg$' | sort -V) $(ls $d | grep -x historia.jpg); do
-                echo "<img src=\"$RAW/$d/$f\" width=\"260\">"
+              if [ -f "$d/plan.json" ]; then
+                echo
+                echo "**Horarios:**"
+                python -c "import json,sys; [print(f\"- {i['hora']} · {i['tipo']} · {i['id']}\") for i in json.load(open(sys.argv[1]))['items']]" "$d/plan.json"
+                echo
+              fi
+              for f in $(ls $d | grep -E '\.jpg$' | sort -V); do
+                echo "<img src=\"$RAW/$d/$f\" width=\"200\" title=\"$f\">"
               done
               echo
-              echo "<details><summary>Texto del post</summary>"
-              echo
-              echo '```'
-              cat "$d/texto.txt"
-              echo '```'
-              echo "</details>"
+              for f in $(ls $d | grep -E '\.mp4$'); do
+                echo "🎬 Reel: [$f](https://github.com/${{ github.repository }}/blob/${{ github.event.pull_request.head.sha }}/$d/$f)"
+              done
+              for t in $(ls $d | grep -E '\.txt$'); do
+                echo
+                echo "<details><summary>Texto: $t</summary>"
+                echo
+                echo '```'
+                cat "$d/$t"
+                echo '```'
+                echo "</details>"
+              done
             done
             echo
-            echo "Si está todo bien, aprobá con **Merge**: la historia sale enseguida y el post a las 19:30."
+            echo "Si está todo bien, aprobá con **Merge**: cada contenido sale solo a su hora."
           } > comentario.md
       - name: Comentar en el PR
         env:
