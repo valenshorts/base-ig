@@ -4,7 +4,7 @@ on:
   pull_request:
     paths: ['queue/**']
 permissions:
-  contents: read
+  contents: write
   pull-requests: write
 jobs:
   revisar:
@@ -61,7 +61,7 @@ jobs:
               done
             done
             echo
-            echo "Si está todo bien, aprobá con **Merge**: cada contenido sale solo a su hora."
+            echo "Si la revisión da OK, el PR se aprueba solo y cada contenido sale a su hora."
           } > comentario.md
       - name: Comentar en el PR
         env:
@@ -70,5 +70,12 @@ jobs:
       - name: Resultado
         if: steps.rev.outputs.code != '0'
         run: |
-          echo "::error::La revisión encontró errores. No aprobar hasta corregirlos."
+          echo "::error::La revisión encontró errores. No se publica hasta corregirlos."
           exit 1
+      - name: Aprobación automática (solo contenido diario con revisión OK)
+        if: steps.rev.outputs.code == '0' && startsWith(github.head_ref, 'post/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} --body "✅ Revisión OK: se aprueba solo. Cada pieza sale a su hora. Si algo no te gusta, borralo de Instagram y avisá."
+          gh pr merge ${{ github.event.pull_request.number }} --squash --delete-branch
