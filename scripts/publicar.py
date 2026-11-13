@@ -12,6 +12,7 @@ Variables de entorno (en GitHub van como Secrets / Variables):
                   Por defecto: https://raw.githubusercontent.com/$GITHUB_REPOSITORY/$GITHUB_SHA
   HORA_POST       opcional, por defecto 19:30
   DRY_RUN=1       no publica nada, solo muestra qué haría
+  VERIFICAR=1     solo prueba el token y el ID (no publica)
 """
 import datetime as dt, json, os, sys, time
 import requests
@@ -83,7 +84,16 @@ def publicar_post(carpeta, posts, texto):
     return publicar_contenedor(cid)
 
 
+def verificar():
+    ig = os.environ.get('IG_USER_ID', '')
+    j = api('GET', ig, fields='username,name')
+    print(f"Conexión OK con Instagram: @{j.get('username')} ({j.get('name')}) · id {ig}")
+
+
 def main():
+    if os.environ.get('VERIFICAR') == '1':
+        verificar()
+        return
     ahora = dt.datetime.now(ART)
     hoy = ahora.date()
     hh, mm = map(int, os.environ.get('HORA_POST', '19:30').split(':'))
