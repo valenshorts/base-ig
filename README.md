@@ -5,30 +5,31 @@ Publicación diaria del flyer y la historia de **@basesuplementos.ar**, con revi
 ## Cómo funciona
 
 ```
-16:31  Claude diseña el flyer + la historia + el texto
+16:31  La rutina de Claude arma el contenido de MAÑANA: 2 posts + 4 historias + 1 reel
         └─ revisa todo (chequeos automáticos + director de arte + segundo revisor)
-        └─ abre un Pull Request en este repo: «Publicación 2026-11-13»
+        └─ abre UN Pull Request: «Contenido 2026-11-14: …»
          ↓
        GitHub corre la revisión automática (workflow «revisar»)
-        └─ comenta en el PR con el resultado, la vista previa y el texto
-        └─ si algo falla, el PR queda en rojo ❌ y no se puede aprobar
+        └─ comenta en el PR con el resultado, los horarios, la vista previa y los textos
+        └─ si algo falla, el PR queda en rojo ❌
          ↓
 Vos    Abrís el PR desde la app de GitHub y tocás «Merge» = aprobado ✅
          ↓
-       Workflow «publicar»
-        └─ la historia sale enseguida
-        └─ el post sale a las 19:30 (si aprobás más tarde, sale apenas aprobás)
+       Workflow «publicar» (corre cada 30 min de 10:05 a 23:35)
+        └─ 11:00 historia · 13:00 post · 15:00 historia · 18:00 historia
+           19:30 post · 20:30 reel · 21:30 historia
 ```
 
-Si no aprobás, no se publica nada. Para frenar algo, simplemente cerrá el PR.
+Si no aprobás, no se publica nada. Para frenar algo, cerrá el PR. Si aprobás tarde, lo atrasado sale espaciado (una pieza de cada tipo cada 30 min); las historias de un día que ya pasó no se publican.
 
 ## Carpetas
 
 | carpeta | qué tiene |
 |---|---|
 | `kit/` | kit de diseño de BASE (lib.py, assets, fonts, README con reglas y precios, historial) |
-| `queue/AAAA-MM-DD/` | una publicación: `post_1.jpg…`, `historia.jpg`, `texto.txt`, los `.py` que las generaron y `estado.json` (lo escribe el bot al publicar) |
-| `scripts/armar.py` | arma la carpeta de la cola (convierte PNG → JPG) |
+| `queue/AAAA-MM-DD/` | un día: `plan.json` (piezas y horarios), JPG de posts e historias, `reel.mp4`, textos `.txt`, los `.py` que generaron las imágenes y `estado.json` (lo escribe el bot al publicar) |
+| `scripts/armar.py` | arma la carpeta del día desde un plan (convierte PNG → JPG) |
+| `scripts/reel.py` | arma el reel MP4 1080×1920 a partir de imágenes |
 | `scripts/revisar.py` | revisión automática |
 | `scripts/publicar.py` | publica con la API oficial de Instagram |
 | `docs/` | instrucciones de la tarea diaria y una publicación de ejemplo |
