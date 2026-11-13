@@ -1,0 +1,59 @@
+{
+ "fecha": "2026-11-14",
+ "items": [
+  {
+   "id": "historia1",
+   "tipo": "historia",
+   "hora": "11:00",
+   "imagen": "historia1.jpg"
+  },
+  {
+   "id": "post1",
+   "tipo": "post",
+   "hora": "13:00",
+   "imagenes": [
+    "post1_1.jpg",
+    "post1_2.jpg",
+    "post1_3.jpg"
+   ],
+   "texto": "post1.txt"
+  },
+  {
+   "id": "historia2",
+   "tipo": "historia",
+   "hora": "15:00",
+   "imagen": "historia2.jpg"
+  },
+  {
+   "id": "historia3",
+   "tipo": "historia",
+   "hora": "18:00",
+   "imagen": "historia3.jpg"
+  },
+  {
+   "id": "post2",
+   "tipo": "post",
+   "hora": "19:30",
+   "imagenes": [
+    "post2_1.jpg",
+    "post2_2.jpg",
+    "post2_3.jpg",
+    "post2_4.jpg"
+   ],
+   "texto": "post2.txt"
+  },
+  {
+   "id": "reel",
+   "tipo": "reel",
+   "hora": "20:30",
+   "video": "reel.mp4",
+   "texto": "reel.txt"
+  },
+  {
+   "id": "historia4",
+   "tipo": "historia",
+   "hora": "21:30",
+   "imagen": "historia4.jpg"
+  }
+ ]
+}
