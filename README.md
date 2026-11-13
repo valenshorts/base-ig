@@ -1,4 +1,4 @@
-# BASE · Instagram automático (con tu OK)
+# BASE · Instagram automático
 
 Publicación diaria del flyer y la historia de **@basesuplementos.ar**, con revisiones antes de publicar y aprobación tuya desde el celu.
 
@@ -11,16 +11,16 @@ Publicación diaria del flyer y la historia de **@basesuplementos.ar**, con revi
          ↓
        GitHub corre la revisión automática (workflow «revisar»)
         └─ comenta en el PR con el resultado, los horarios, la vista previa y los textos
-        └─ si algo falla, el PR queda en rojo ❌
+        └─ si algo falla, el PR queda en rojo ❌ y no se publica nada
          ↓
-Vos    Abrís el PR desde la app de GitHub y tocás «Merge» = aprobado ✅
+       Si la revisión da OK ✅ → el PR se aprueba solo (merge automático)
          ↓
        Workflow «publicar» (corre cada 30 min de 10:05 a 23:35)
         └─ 11:00 historia · 13:00 post · 15:00 historia · 18:00 historia
            19:30 post · 20:30 reel · 21:30 historia
 ```
 
-Si no aprobás, no se publica nada. Para frenar algo, cerrá el PR. Si aprobás tarde, lo atrasado sale espaciado (una pieza de cada tipo cada 30 min); las historias de un día que ya pasó no se publican.
+Solo se aprueban solos los PR de ramas `post/…` (contenido diario); cualquier otro cambio necesita Merge manual. Si algo publicado no gusta, se borra de Instagram. Si aprobás tarde, lo atrasado sale espaciado (una pieza de cada tipo cada 30 min); las historias de un día que ya pasó no se publican.
 
 ## Carpetas
 
