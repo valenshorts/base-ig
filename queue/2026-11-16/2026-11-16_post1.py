@@ -74,18 +74,18 @@ rows = [('B · Semillas de zapallo', pep(110), '592 mg', 100, ''),
 rk = ''.join(f'<div class="r{c}"><div class="ic">{ic}</div><div class="bd"><div class="tp"><b>{n}</b><span>{v}</span></div>'
              f'<div class="bar"><i style="width:{w}%"></i></div></div></div>' for n, ic, v, w, c in rows)
 s2 += f'<div class="rk" style="top:470px">{rk}</div>'
-s2 += '<div class="src" style="top:1090px">Magnesio cada 100 g · chocolate 70–85 % cacao · semillas secas. Fuente: USDA FoodData Central.</div>'
-s2 += f'<div class="cta" style="top:1180px;font-size:29px">¿Y la banana? <span>Deslizá</span> {E("👉",29)}</div>'
+s2 += '<div class="src" style="top:1090px">Magnesio cada 100 g · chocolate 70–85 % cacao · semillas peladas y secas. Fuente: USDA FoodData Central.</div>'
+s2 += f'<div class="cta" style="top:1180px;font-size:29px">¿Y la banana? {E("🤔",29)}</div>'
 
 # 3 · EL GIRO
 s3 = ST + '<div class="eb" style="top:200px">El giro</div>'
 s3 += '<div class="t" style="top:250px;font-size:74px">La banana es<br>famosa por<br><span class="box">otro mineral</span></div>'
-pts = [('🍌', 'Lo que más trae la banana es <b>potasio</b>: <em>358 mg cada 100 g</em>, contra 27 mg de magnesio.'),
-       ('🥜', 'El magnesio abunda en <b>semillas, frutos secos, legumbres</b> y cereales integrales.'),
-       ('🔍', 'Los valores son cada 100 g: <b>nadie come 100 g de semillas</b> de una. Mirá también la porción.')]
+pts = [(E('🍌'), 'Lo que más trae la banana es <b>potasio</b>: <em>358 mg cada 100 g</em>, contra 27 mg de magnesio.'),
+       (pep(100), 'El magnesio abunda en <b>semillas, frutos secos, legumbres</b> y cereales integrales.'),
+       (E('🔍'), 'Los valores son cada 100 g: <b>nadie come 100 g de semillas</b> de una. Mirá también la porción.')]
 top = 560
 for k, t in pts:
-    s3 += f'<div class="pt" style="top:{top}px"><div class="k">{E(k)}</div><div class="n">{t}</div></div>'
+    s3 += f'<div class="pt" style="top:{top}px"><div class="k">{k}</div><div class="n">{t}</div></div>'
     top += 190
 s3 += f'<div class="cta" style="top:1180px;font-size:28px">Guardalo y compartilo {E("📌",28)}</div>'
 

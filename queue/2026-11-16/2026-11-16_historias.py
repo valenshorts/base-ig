@@ -65,7 +65,7 @@ h1 += LEG
 # 15:00 · PRODUCTO DEL DÍA
 h2 = ST + '<div class="eb" style="top:270px">Producto del día</div>'
 h2 += '<div class="t" style="top:325px;font-size:88px">Creatina<br><span class="box">+ electrolitos</span></div>'
-h2 += tiles([('ena_creaelec_bluelemon', pf('ENA Creatina + electrolitos 300 g', '$28.900'))], 620, 760, 560).replace('class="tiles"', 'class="tiles pd"')
+h2 += tiles([('ena_creaelec_bluelemon', pf('ENA Creatina + electrolitos', '$28.900'))], 620, 760, 560).replace('class="tiles"', 'class="tiles pd"')
 h2 += '<div class="tipb" style="top:1400px">La creatina aumenta el rendimiento físico en series sucesivas de ejercicios cortos de alta intensidad.<br>Precio por transferencia o efectivo.</div>'
 h2 += CAT + LEG
 
@@ -83,7 +83,7 @@ h3 += LEG
 # 21:30 · CIERRE DEL DÍA
 h4 = ST + '<div class="eb" style="top:270px">Para cerrar el lunes</div>'
 h4 += '<div class="t" style="top:325px;font-size:80px">¿Mirás si tu<br>creatina dice<br><span class="box">monohidrato?</span></div>'
-h4 += op4([('A', '✅', 'Siempre'), ('B', '🤷', 'A veces'), ('C', '🙈', 'Nunca miré'), ('D', '🙋', 'No tomo')], 690)
+h4 += op4([('A', '✅', 'Siempre'), ('B', '🤷', 'A veces'), ('C', '🙈', 'Nunca miré'), ('D', '🙅', 'No tomo')], 690)
 h4 += f'<div class="vote" style="top:1400px">Respondé esta historia con<br><span>A, B, C o D</span> {E("💬",34)}</div>'
 h4 += f'<div class="rem" style="top:1525px;padding:14px 26px">{E("🏷️")}<div class="tx"><b>¿Qué es Creapure?</b>Mirá el post de hoy: <em>es una marca, no otra creatina.</em></div></div>'
 h4 += LEG

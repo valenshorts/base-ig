@@ -33,13 +33,13 @@ ST = '''<style>
 s1 = ST + '<div class="eb" style="top:200px">Guía rápida</div>'
 s1 += '<div class="t" style="top:250px;font-size:84px">¿Qué es<br><span class="box">Creapure?</span></div>'
 s1 += tiles([('gold_creapure200', cf('Creatina Creapure', 28))], 500, 520, 560).replace('class="tiles"', 'class="tiles cp" style="justify-content:flex-start"').replace('style="justify-content:flex-start" style="', 'style="right:460px;justify-content:flex-start;')
-s1 += f'''<div class="qq" style="top:500px"><div>{E("🤔")}Qué es</div><div>{E("⚖️")}En qué se diferencia</div><div>{E("🔍")}Cómo elegir</div><div>{E("🛒")}Opciones</div></div>'''
-s1 += f'<div class="cta" style="top:1196px">Te lo contamos {E("👉",30)}</div>'
+s1 += f'''<div class="qq" style="top:500px"><div>{E("🤔")}Qué es</div><div>{E("🔍")}Cómo elegir</div><div>{E("🛒")}Opciones</div></div>'''
+s1 += f'<div class="cta" style="top:1196px">En 3 slides {E("👉",30)}</div>'
 
 # 2 · QUÉ ES
 s2 = ST + '<div class="eb" style="top:200px">Qué es</div>'
 s2 += '<div class="t" style="top:250px;font-size:72px">Es una marca,<br><span class="box">no otra creatina</span></div>'
-s2 += f'''<div class="eq" style="top:520px"><div class="bx on">{E("🏷️")}<b>Creapure</b></div><div class="op">=</div>
+s2 += f'''<div class="eq" style="top:520px"><div class="bx on">{E("🏷️")}<b>Creapure</b></div><div class="op">→</div>
  <div class="bx">{E("🧪")}<b>Creatina<br>monohidrato</b></div></div>'''
 pts = [('🏭', '<b>Creapure</b> es una marca registrada de creatina monohidrato que <b>se fabrica en Alemania</b>.'),
        ('📚', 'La <em>creatina monohidrato</em> es la forma <b>más estudiada</b> (posición de la ISSN, 2017).')]
@@ -47,7 +47,7 @@ top = 860
 for k, t in pts:
     s2 += f'<div class="pt" style="top:{top}px"><div class="k">{E(k)}</div><div class="n">{t}</div></div>'
     top += 160
-s2 += f'<div class="cta" style="top:1196px;font-size:29px">¿Entonces? <span>Deslizá</span> {E("👉",29)}</div>'
+s2 += f'<div class="cta" style="top:1196px;font-size:29px">¿Y cómo elijo? {E("🤔",29)}</div>'
 
 # 3 · CÓMO ELEGIR
 s3 = ST + '<div class="eb" style="top:200px">Cómo elegir</div>'

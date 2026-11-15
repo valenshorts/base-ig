@@ -46,8 +46,8 @@ ST = '''<style>
 .rt4 .tile .ph img{max-height:80%}
 .rt4 .tile .ft .b{font-size:20px}
 </style>'''
-LEG = f'<div class="legal" style="bottom:auto;top:1690px">{LEGAL_TXT}</div>'
 R = 'right:140px'  # margen derecho extra: ahí van los botones de Instagram en los reels
+LEG = f'<div class="legal" style="bottom:auto;top:1545px;{R}">{LEGAL_TXT}</div>'
 
 
 def paso(n, eb, titulo, ic, val, sub):
@@ -59,16 +59,16 @@ def paso(n, eb, titulo, ic, val, sub):
     return r + LEG
 
 # 1 · GANCHO
-r1 = ST + '<div class="eb" style="top:300px">Desafío en 15 segundos</div>'
+r1 = ST + '<div class="eb" style="top:300px">Desafío rápido</div>'
 r1 += f'<div class="t" style="top:360px;{R};font-size:104px">¿Qué tiene<br>más <span class="box">magnesio?</span></div>'
 r1 += f'<div class="hero" style="top:720px;{R};height:460px;gap:16px">{E("🍌",190)}{pep(205)}{E("🍫",190)}{alm(205)}</div>'
-r1 += f'<div class="big" style="top:1300px;{R}">Cada 100 g.<br><span>¿Adivinás el orden?</span></div>'
+r1 += f'<div class="big" style="top:1300px;{R}"><span style="color:#fff;text-transform:none">Cada 100 g</span><br><span>¿Adivinás el orden?</span></div>'
 r1 += LEG
 
-r2 = paso(2, '4º lugar', 'Banana', E('🍌', 300), '27', 'Lo suyo es el <b>potasio</b>: 358 mg')
-r3 = paso(3, '3º lugar', 'Chocolate<br>amargo', E('🍫', 280), '228', 'Chocolate <b>70–85 % cacao</b>')
-r4 = paso(4, '2º lugar', 'Almendras', alm(380), '270', 'Un clásico de los <b>frutos secos</b>')
-r5 = paso(5, '1º lugar', 'Semillas<br>de zapallo', pep(380), '592', 'Las que <b>más magnesio</b> traen.<br>Fuente: USDA FoodData Central')
+r2 = paso(2, '4.º lugar', 'Banana', E('🍌', 300), '27', 'Lo suyo es el <b>potasio</b>: 358 mg')
+r3 = paso(3, '3.º lugar', 'Chocolate<br>amargo', E('🍫', 280), '228', 'Chocolate <b>70–85 % cacao</b>')
+r4 = paso(4, '2.º lugar', 'Almendras', alm(380), '270', 'Un clásico de los <b>frutos secos</b>')
+r5 = paso(5, '1.º lugar', 'Semillas<br>de zapallo', pep(380), '592', 'Las que <b>más magnesio</b> traen.<br>Fuente: USDA FoodData Central')
 r5 = r5.replace('font-size:104px', 'font-size:96px')
 
 # 6 · CTA
@@ -77,9 +77,9 @@ r6 += f'<div class="t" style="top:360px;{R};font-size:100px">Citrato o<br><span 
 r6 += tiles([('star_citratomg', pf('Citrato Star', '$10.900')), ('ena_citratomg', pf('Citrato ENA', '$12.900')),
              ('magnesio_glicinato_gold', pf('Glicinato Gold', '$15.900'))],
             620, 276, 470, 16).replace('class="tiles" style="', f'class="tiles rt4" style="{R};')
-r6 += f'<div class="btn" style="left:80px;{R};justify-content:center;top:1290px;font-size:32px;padding:26px 30px">{E("🛒",36)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
-r6 += f'<div class="wa" style="top:1420px;{R}">{E("💬",26)} WHATSAPP <span>11 2178-9431</span> · SOLO MENSAJES</div>'
-r6 += f'<div class="wa" style="top:1480px;{R};font-size:24px;color:#a9a9ad">Precios por transferencia o efectivo</div>'
+r6 += f'<div class="btn" style="left:80px;{R};justify-content:center;top:1225px;font-size:32px;padding:26px 30px">{E("🛒",36)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
+r6 += f'<div class="wa" style="top:1345px;{R}">{E("💬",26)} WHATSAPP <span>11 2178-9431</span> · SOLO MENSAJES</div>'
+r6 += f'<div class="wa" style="top:1400px;{R};font-size:24px;color:#a9a9ad">Precios por transferencia o efectivo</div>'
 r6 += LEG
 
 print(render([page(1, r, nxt=False, total=1, story=True, legal=False) for r in (r1, r2, r3, r4, r5, r6)], f'{OUT}/reel', 1080, 1920))
