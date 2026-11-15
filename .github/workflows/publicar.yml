@@ -5,10 +5,10 @@ on:
     branches: [main]
     paths: ['queue/**']
   schedule:
-    # Cada 30 minutos de 10:05 a 23:35 hora Argentina (UTC-3). Cada contenido sale en la primera corrida
-    # después de su hora. GitHub puede demorar las corridas programadas unos minutos.
-    - cron: '5,35 13-23 * * *'
-    - cron: '5,35 0-2 * * *'
+    # Respaldo: lo principal es el vigía (scripts/vigia.sh), que se queda despierto y publica a horario.
+    # Estas corridas solo vuelven a arrancar la cadena si alguna vez se corta.
+    - cron: '17 13,16,19,22 * * *'
+    - cron: '17 1 * * *'
   workflow_dispatch:
     inputs:
       dry_run:
@@ -21,12 +21,14 @@ on:
         default: false
 permissions:
   contents: write
+  actions: write
 concurrency:
   group: publicar
   cancel-in-progress: false
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
         with:
@@ -54,3 +56,14 @@ jobs:
           git config user.email "base-bot@users.noreply.github.com"
           git add queue/*/estado.json 2>/dev/null || true
           git diff --cached --quiet || (git commit -m "Estado de publicación" && (git push || (git pull --rebase origin main && git push)))
+      - name: Vigía (publica cada pieza a su hora)
+        if: ${{ !(github.event_name == 'workflow_dispatch' && (inputs.dry_run || inputs.verificar)) }}
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          GRAPH_VERSION: ${{ vars.GRAPH_VERSION }}
+          MEDIA_BASE_URL: ${{ vars.MEDIA_BASE_URL }}
+          DRY_RUN: '0'
+          VERIFICAR: '0'
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/vigia.sh
