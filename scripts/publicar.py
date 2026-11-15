@@ -65,8 +65,17 @@ def crear(intentos=30, pausa=4, **p):
     return cid
 
 
-def publicar_contenedor(cid):
-    return api('POST', f"{os.environ.get('IG_USER_ID', 'IG_USER_ID')}/media_publish", creation_id=cid)['id']
+def publicar_contenedor(cid, intentos=4, pausa=15):
+    # A veces Instagram marca el contenedor como listo pero todavía no lo encuentra al publicar
+    # (error 2207006 / 9007). Se reintenta unos segundos después.
+    for i in range(intentos):
+        try:
+            return api('POST', f"{os.environ.get('IG_USER_ID', 'IG_USER_ID')}/media_publish", creation_id=cid)['id']
+        except RuntimeError as e:
+            if i == intentos - 1 or not any(c in str(e) for c in ('2207006', '2207027', '9007')):
+                raise
+            print(f'  Instagram todavía no tiene listo el contenido, reintento en {pausa} s.')
+            time.sleep(pausa)
 
 
 def url(carpeta, archivo):

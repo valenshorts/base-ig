@@ -18,7 +18,7 @@ while true; do
   git pull -q --rebase origin main || true
   espera=$(python scripts/proxima.py)
   [ -z "$espera" ] && espera=7200          # nada pendiente: el contenido de mañana llega a la tarde
-  [ "$fallo" = 1 ] && [ "$espera" -lt 1800 ] && espera=1800   # si Instagram falló, reintentar en 30 min
+  [ "$fallo" = 1 ] && [ "$espera" -lt 600 ] && espera=600     # si Instagram falló, reintentar en 10 min
   resto=$((limite - $(date +%s)))
   if [ "$espera" -ge "$resto" ]; then
     [ "$resto" -gt 0 ] && sleep "$resto"
