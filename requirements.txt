@@ -3,3 +3,4 @@ pillow>=10
 fonttools>=4.40
 requests>=2.31
 imageio-ffmpeg>=0.5
+numpy>=1.24
