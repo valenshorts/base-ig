@@ -46,7 +46,21 @@ Objetivo: una marca confiable que **vende** a consumidores (B2C) y a negocios (B
 
 Mezcla semanal de los 14 posts (hipótesis, se ajusta con métricas): ~5 EDUCA (35 %), ~4 PRODUCTOS (25 %), ~2-3 MAYORISTAS (20 %), ~2-3 CONFIANZA (20 %: cómo comprar, cómo pagar —10 % OFF transferencia o efectivo—, cómo consultar, marcas que vendemos, cómo funciona la compra por mayor; solo con datos reales del README, sin inventar envíos, plazos ni testimonios). Cada post tiene UN objetivo (alcance, interacción, confianza, consulta o venta). Registrá en `kit/historial.md` la familia de cada post para mantener la mezcla.
 
-Publicaciones fijadas (máximo 3 en Instagram): «Somos BASE · Cómo comprar» (`kit/fijado_somos_base.py`), «BASE Mayoristas» y el sorteo hasta el 28/11. No hace falta repetirlas; si cambian precios, envíos o pagos, avisale a Valentín para rehacer la fijada.
+Calendario semanal base (familia de cada post; el tema lo elegís vos sin repetir el historial):
+
+| día | post 13:00 | post 19:30 | historia extra |
+|---|---|---|---|
+| lunes | EDUCA (mito o verdad / quiz) | PRODUCTOS (combo de la semana) | — |
+| martes | EDUCA (comparación) | MAYORISTAS (marcas, categorías o cómo pedir) | B2B «¿Tenés un negocio? Mandá MAYORISTA» |
+| miércoles | CONFIANZA (cómo comprar / pagos / envíos) | PRODUCTOS (comparación de productos o guía de compra) | — |
+| jueves | EDUCA (error común / curiosidad) | PRODUCTOS (producto destacado con precio) | — |
+| viernes | EDUCA (desafío / esto o aquello) | MAYORISTAS (para gimnasios, dietéticas o revendedores) | B2B |
+| sábado | CONFIANZA (marcas que vendemos / 10 % OFF transferencia o efectivo) | PRODUCTOS (combos para el finde) | — |
+| domingo | EDUCA (guía corta para guardar) | CONFIANZA o PRODUCTOS (resumen de la semana) | — |
+
+Mientras dure el sorteo, sus piezas reemplazan a las de su día como dice la sección de la campaña.
+
+Publicaciones fijadas (máximo 3 en Instagram): «Somos BASE · Cómo comprar» (`kit/fijado_somos_base.py`), «BASE Mayoristas» y el sorteo hasta el 28/11. Destacados: Catálogo, Ofertas, Mayoristas, Envíos, Cómo comprar (`kit/destacados.py`); si cambian precios de combos, rehacé «Ofertas» y avisale a Valentín para reemplazarla en el destacado. No hace falta repetirlas; si cambian precios, envíos o pagos, avisale a Valentín para rehacer la fijada.
 
 Historias: productos más grandes, menos espacio vacío, precio y CTA claros; 1 o 2 historias B2B por semana («¿Tenés un negocio? Escribinos MAYORISTA»).
 
