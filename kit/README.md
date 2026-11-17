@@ -41,6 +41,7 @@ Cada flyer tiene que ser **visual, con imágenes y emojis**, no solo texto:
 - No decir "más vendido" ni "en stock" sin datos. No inventar estudios ni cifras.
 - Llamado a la acción principal: **ver el catálogo en la web ("link en la bio")**, tanto en el flyer como en el texto del post. WhatsApp 11 2178-9431 va como canal de consulta, **solo por mensaje** (no llamadas). Instagram @basesuplementos.ar.
 - Precios: los de transferencia o efectivo (10% OFF vs. tarjeta).
+- Envíos: a todo el país; el costo del envío lo paga quien compra (confirmado por Valentín 17/11). Pedidos y pagos se coordinan por WhatsApp 11 2178-9431 (solo mensajes). Venta por unidad y por mayor (mayoristas: escribir MAYORISTA).
 - Español rioplatense con voseo. Los textos del post terminan con una pregunta.
 
 ## Productos (archivo en assets/ → producto · precio transferencia/efectivo, según la web de BASE)
