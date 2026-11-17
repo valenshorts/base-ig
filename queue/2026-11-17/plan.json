@@ -67,6 +67,18 @@
     "mayoristas_4.jpg"
    ],
    "texto": "mayoristas.txt"
+  },
+  {
+   "id": "somos_base",
+   "tipo": "post",
+   "hora": "16:25",
+   "imagenes": [
+    "somos_base_1.jpg",
+    "somos_base_2.jpg",
+    "somos_base_3.jpg",
+    "somos_base_4.jpg"
+   ],
+   "texto": "somos_base.txt"
   }
  ]
 }
