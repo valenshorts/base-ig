@@ -46,6 +46,8 @@ Objetivo: una marca confiable que **vende** a consumidores (B2C) y a negocios (B
 
 Mezcla semanal de los 14 posts (hipótesis, se ajusta con métricas): ~5 EDUCA (35 %), ~4 PRODUCTOS (25 %), ~2-3 MAYORISTAS (20 %), ~2-3 CONFIANZA (20 %: cómo comprar, cómo pagar —10 % OFF transferencia o efectivo—, cómo consultar, marcas que vendemos, cómo funciona la compra por mayor; solo con datos reales del README, sin inventar envíos, plazos ni testimonios). Cada post tiene UN objetivo (alcance, interacción, confianza, consulta o venta). Registrá en `kit/historial.md` la familia de cada post para mantener la mezcla.
 
+Publicaciones fijadas (máximo 3 en Instagram): «Somos BASE · Cómo comprar» (`kit/fijado_somos_base.py`), «BASE Mayoristas» y el sorteo hasta el 28/11. No hace falta repetirlas; si cambian precios, envíos o pagos, avisale a Valentín para rehacer la fijada.
+
 Historias: productos más grandes, menos espacio vacío, precio y CTA claros; 1 o 2 historias B2B por semana («¿Tenés un negocio? Escribinos MAYORISTA»).
 
 Textos de las publicaciones: apertura que enganche, info útil que NO repita las slides, UN CTA acorde al objetivo, datos comerciales necesarios, leyenda legal y pregunta final. Pocos emojis, tono argentino, directo y profesional, nada de promesas exageradas.
