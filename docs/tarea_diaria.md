@@ -37,6 +37,21 @@ Los dos posts del día tienen que ser de temas distintos y formatos distintos. V
 9. Esperá unos minutos a que termine el check «revisar» del PR. Si falla, leé el comentario, corregí, pusheá de nuevo a la misma rama y repetí hasta que pase (ahí se mergea solo).
 10. Avisale a Valentín con PushNotification: «Contenido de mañana listo y aprobado: <tema 1> + <tema 2> + reel. Sale solo de 11:00 a 21:30». Si algo falló y no quedó aprobado, avisale qué pasó.
 
+## Estrategia BASE (aprobada por Valentín el 17/11/2026) — MANDA sobre lo de arriba si hay conflicto
+Objetivo: una marca confiable que **vende** a consumidores (B2C) y a negocios (B2B). Misma identidad (negro, lima, Montserrat/Archivo Black, esquinas rectas, logo sin cambios), tres familias visuales:
+
+- **BASE EDUCA** (alcance, guardados, comentarios): mitos, comparaciones, guías, errores, curiosidades. Estándar: `kit/estandar_educa.py`. Portada con pregunta corta y una imagen protagonista que NO adelanta la respuesta; una idea por slide; números grandes en vez de párrafos; la base del dato visible («cada 100 g», «vaso de 200 ml») y la fuente; nada de afirmaciones generales de salud o tolerancias. Cierre: guardar/compartir/comentar, o como mucho UN producto/combo protagonista con transición natural desde el tema (nunca dos combos ni cierres cargados).
+- **BASE PRODUCTOS** (consultas y ventas minoristas): producto del día, combos, comparaciones de productos, guías de compra. El producto ocupa la mitad de la slide o más, precio grande, poco texto, CTA directo («Pedí la tuya · link en la bio» o «Escribinos por WhatsApp»).
+- **BASE MAYORISTAS** (gimnasios, dietéticas, tiendas, entrenadores, revendedores): estándar `kit/estandar_mayoristas.py` (sello «BASE MAYORISTAS», contornos, pasos numerados, tono institucional). Marcas confirmadas por mayor: ENA, Star Nutrition, Gold Nutrition, Optimum Nutrition, MyProtein. CTA único: escribir **MAYORISTA** al WhatsApp 11 2178-9431 (el mismo, solo mensajes). **PROHIBIDO** publicar precios mayoristas, mínimos, descuentos, márgenes, stock, plazos de entrega, distribución oficial o depósito propio.
+
+Mezcla semanal de los 14 posts (hipótesis, se ajusta con métricas): ~5 EDUCA (35 %), ~4 PRODUCTOS (25 %), ~2-3 MAYORISTAS (20 %), ~2-3 CONFIANZA (20 %: cómo comprar, cómo pagar —10 % OFF transferencia o efectivo—, cómo consultar, marcas que vendemos, cómo funciona la compra por mayor; solo con datos reales del README, sin inventar envíos, plazos ni testimonios). Cada post tiene UN objetivo (alcance, interacción, confianza, consulta o venta). Registrá en `kit/historial.md` la familia de cada post para mantener la mezcla.
+
+Historias: productos más grandes, menos espacio vacío, precio y CTA claros; 1 o 2 historias B2B por semana («¿Tenés un negocio? Escribinos MAYORISTA»).
+
+Textos de las publicaciones: apertura que enganche, info útil que NO repita las slides, UN CTA acorde al objetivo, datos comerciales necesarios, leyenda legal y pregunta final. Pocos emojis, tono argentino, directo y profesional, nada de promesas exageradas.
+
+Nunca inventes testimonios, reseñas, ventas, pedidos, stock, promociones ni datos nutricionales.
+
 ## Campaña activa: SORTEO «3 creatinas» (14/11 al 28/11/2026)
 Archivos en `campanas/sorteo-creatinas/`: `sorteo_creatinas.py` (post de 3 slides + historia de lanzamiento, ya diseñados y revisados), `texto_sorteo.txt` (texto del post con las bases) y `bases.md`. Premios: 2 Creatina Gold 300 g + 1 Creatina Star 300 g, envío gratis a todo el país. Cierre: viernes 27/11 23:59. Sorteo en vivo: sábado 28/11.
 
