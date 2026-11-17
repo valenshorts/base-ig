@@ -9,7 +9,7 @@ from anim import page, palabras, burst, flash, foto as _foto, MARCA
 
 
 def _tile(x, y, w, h, foto=None, emoji=None, pie=None, precio=None, anim='', extra=''):
-    img = f'<img src="{_foto(foto)}">' if foto else f'<span class="e" style="position:absolute;left:0;right:0;top:{h * .22:.0f}px;text-align:center;font-size:{h * .42:.0f}px">{emoji}</span>'
+    img = f'<img src="{_foto(foto)}">' if foto else f'<span class="e" style="position:absolute;left:0;right:0;top:{h * .22:.0f}px;text-align:center;font-size:{min(h * .42, w * .52):.0f}px">{emoji}</span>'
     ft = ''
     if pie or precio:
         ft = f'<div class="ft">{f"<b>{pie}</b>" if pie else ""}{f"<s>{precio}</s>" if precio else ""}</div>'
