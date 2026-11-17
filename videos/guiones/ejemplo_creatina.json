@@ -1,0 +1,26 @@
+{
+  "voz": false,
+  "musica": true,
+  "escenas": [
+    {"plantilla": "gancho", "dur": 1.94,
+     "datos": {"eb": "En 20 segundos", "texto": "¿Qué hace la [creatina]?", "foto": "creatina_star_300g"}},
+    {"plantilla": "rafaga", "dur": 1.94,
+     "datos": {"palabras": ["No es", "magia", "es", "ciencia"]}},
+    {"plantilla": "dato", "dur": 2.42,
+     "datos": {"eb": "Lo que dice la EFSA", "texto": "Más rendimiento en series *cortas* e *intensas*", "fuente": "EFSA (Unión Europea)", "emoji": "🏋️"}},
+    {"plantilla": "quiz", "dur": 4.35,
+     "datos": {"pregunta": "¿Cuándo conviene tomarla?",
+               "opciones": [["🌅", "Antes de entrenar"], ["🌙", "Después"], ["🔁", "Todos los días"], ["🏋️", "Solo días de gym"]],
+               "correcta": 2}},
+    {"plantilla": "numero", "dur": 1.94,
+     "datos": {"texto": "Con al menos", "valor": 3, "unidad": "gramos por día", "emoji": "⚡"}},
+    {"plantilla": "comparacion", "dur": 2.42,
+     "datos": {"texto": "Elegí la *tuya*",
+               "izq": {"foto": "creatina_gold_300g", "texto": "Gold 300 g", "precio": "$22.900"},
+               "der": {"foto": "creatina_star_300g", "texto": "Star 300 g", "precio": "$23.800"}}},
+    {"plantilla": "producto", "dur": 2.42,
+     "datos": {"foto": "creatina_star_300g", "foto2": "creatina_star_300g", "nombre": "2× Creatina Star", "detalle": "300 g c/u · transferencia o efectivo", "precio": "$44.900", "chip": "AHORRÁS $2.700"}},
+    {"plantilla": "cierre", "dur": 2.9,
+     "datos": {"texto": "Pedí la *tuya*", "fotos": ["creatina_star_300g", "creatina_gold_300g", "gold_creapure200", "on_creatine"]}}
+  ]
+}
