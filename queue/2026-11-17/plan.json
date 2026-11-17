@@ -55,6 +55,18 @@
    "tipo": "historia",
    "hora": "21:30",
    "imagen": "historia4.jpg"
+  },
+  {
+   "id": "mayoristas",
+   "tipo": "post",
+   "hora": "16:10",
+   "imagenes": [
+    "mayoristas_1.jpg",
+    "mayoristas_2.jpg",
+    "mayoristas_3.jpg",
+    "mayoristas_4.jpg"
+   ],
+   "texto": "mayoristas.txt"
   }
  ]
 }
