@@ -79,6 +79,36 @@
     "somos_base_4.jpg"
    ],
    "texto": "somos_base.txt"
+  },
+  {
+   "id": "destacado_catalogo",
+   "tipo": "historia",
+   "hora": "16:40",
+   "imagen": "destacado_catalogo.jpg"
+  },
+  {
+   "id": "destacado_ofertas",
+   "tipo": "historia",
+   "hora": "16:40",
+   "imagen": "destacado_ofertas.jpg"
+  },
+  {
+   "id": "destacado_mayoristas",
+   "tipo": "historia",
+   "hora": "16:40",
+   "imagen": "destacado_mayoristas.jpg"
+  },
+  {
+   "id": "destacado_envios",
+   "tipo": "historia",
+   "hora": "16:40",
+   "imagen": "destacado_envios.jpg"
+  },
+  {
+   "id": "destacado_como_comprar",
+   "tipo": "historia",
+   "hora": "16:40",
+   "imagen": "destacado_como_comprar.jpg"
   }
  ]
 }
