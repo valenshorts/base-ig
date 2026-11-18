@@ -5,6 +5,8 @@
 // variable de entorno MP_ACCESS_TOKEN de Netlify (nunca en el código).
 import catalogo from './catalogo.json';
 
+// Envío fijo por zona (lo paga quien compra). Cambiar acá y en ENVIOS de public/index.html.
+const ENVIOS = { amba: { nombre: 'CABA y GBA', costo: 9900 }, interior: { nombre: 'Resto del país', costo: 14900 } };
 const SITIO = process.env.URL || 'https://basesuplementos.netlify.app';
 const r = (status, body) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 const limpiar = (s, n = 80) => String(s ?? '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
@@ -42,10 +44,14 @@ export default async (req) => {
   const localidad = limpiar(comprador.localidad, 80);
   if (!nombre || whatsapp.replace(/\D/g, '').length < 8 || !localidad) return r(400, { error: 'Completá nombre, WhatsApp y localidad.' });
 
+  const envio = ENVIOS[datos.envio];
+  if (!envio) return r(400, { error: 'Elegí la zona de envío.' });
+
   const referencia = `BASE-${Date.now().toString(36).toUpperCase()}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
   const preferencia = {
     items,
     payer: { name: nombre, ...(comprador.email ? { email: limpiar(comprador.email, 120) } : {}) },
+    shipments: { mode: 'not_specified', cost: envio.costo },
     external_reference: referencia,
     statement_descriptor: 'BASE SUPLEMENTOS',
     back_urls: {
@@ -59,6 +65,7 @@ export default async (req) => {
       whatsapp, localidad, nombre,
       notas: limpiar(comprador.notas, 300),
       origen: limpiar(datos.origen, 40) || 'web',
+      envio: `${envio.nombre} $${envio.costo}`,
     },
   };
   const res = await fetch('https://api.mercadopago.com/checkout/preferences', {

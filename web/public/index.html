@@ -292,6 +292,12 @@
   .mp-btn.sm{width:auto;font-size:11.5px;padding:10px 14px;}
   .pay-note{color:var(--gray);font-size:12.5px;line-height:1.5;}
   .pay-note b{color:var(--white);}
+  .pay-envio{border:1px solid var(--line);padding:10px 12px 12px;display:grid;gap:8px;}
+  .pay-envio legend{font-size:11.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);padding:0 4px;}
+  .pay-form .envio-op{flex-direction:row;align-items:center;gap:10px;font-size:14px;font-weight:600;text-transform:none;letter-spacing:0;color:var(--white);cursor:pointer;}
+  .envio-op span{flex:1;}
+  .envio-op b{color:var(--gold);}
+  .envio-op input{accent-color:var(--gold);width:16px;height:16px;}
   .pay-err{color:#ff8a7a;font-size:13px;font-weight:600;}
   .pay-alt{color:var(--gray);font-size:12.5px;text-decoration:underline;align-self:center;}
   .pay-alt:hover{color:var(--gold);}
@@ -565,7 +571,7 @@
       <div style="background:var(--panel);padding:26px 22px;">
         <div style="font-family:'Montserrat',sans-serif;color:var(--gold);font-size:12px;margin-bottom:10px;">03</div>
         <div style="font-family:'Montserrat',sans-serif;font-size:17px;margin-bottom:6px;">Coordinamos el envío</div>
-        <div style="color:var(--gray);font-size:13.5px;">Enviamos a todo el país. El envío lo paga quien compra: te pasamos el costo por WhatsApp.</div>
+        <div style="color:var(--gray);font-size:13.5px;">Enviamos a todo el país. El envío lo paga quien compra: $9.900 a CABA y GBA, $14.900 al resto del país.</div>
       </div>
     </div>
   </div>
@@ -581,7 +587,7 @@
       <details><summary>¿Los productos son originales?</summary><p>Sí. Todos los productos son originales, sellados y de las marcas oficiales. Si tenés dudas sobre algún producto en particular, escribinos y te mandamos fotos.</p></details>
       <details><summary>¿Cómo hago un pedido?</summary><p>Elegí los productos (y el sabor) en el catálogo y tocá <b>Finalizar compra</b>. Podés pagar en el momento con <b>Mercado Pago</b> (precio de lista) o mandarnos el pedido por WhatsApp y pagar por transferencia o efectivo con <b>10% OFF</b>.</p></details>
       <details><summary>¿Qué formas de pago aceptan?</summary><p><b>Mercado Pago</b> desde la web (tarjeta, débito o dinero en cuenta) al precio de lista, o <b>transferencia y efectivo con 10% OFF</b> pidiendo por WhatsApp.</p></details>
-      <details><summary>¿Hacen envíos?</summary><p>Sí, a todo el país. <b>El envío lo paga quien compra</b>: lo coordinamos por WhatsApp según tu zona y te pasamos el costo.</p></details>
+      <details><summary>¿Hacen envíos?</summary><p>Sí, a todo el país. <b>El envío lo paga quien compra</b>: comprando online cuesta <b>$9.900 a CABA y GBA</b> y <b>$14.900 al resto del país</b>. Pidiendo por WhatsApp lo coordinamos según tu zona.</p></details>
       <details><summary>¿Cuánto tarda en llegar?</summary><p>Depende de la zona y del medio de envío que elijas. Te confirmamos el plazo al momento de coordinar el pedido.</p></details>
       <details><summary>¿Venden por mayor?</summary><p>Sí, trabajamos con gimnasios, dietéticas, tiendas y revendedores. Escribinos por WhatsApp y te pasamos la lista mayorista.</p></details>
     </div>
@@ -642,15 +648,20 @@
       <div class="eyebrow">Pago online</div>
       <h3 id="payTitle">Pagá con Mercado Pago</h3>
       <div class="pay-resumen" id="payResumen"></div>
-      <div class="pay-total"><span>Total con Mercado Pago</span><b id="payTotal"></b></div>
-      <p class="pay-note">Por transferencia o efectivo pagás <b id="payTransf"></b> (10% OFF): <button class="pay-alt" id="payWaAlt2" type="button" style="display:inline;padding:0;">pedilo por WhatsApp</button>.</p>
+      <div class="pay-total"><span>Total con Mercado Pago <small id="payEnvioTxt" style="font-weight:500;color:var(--gray);"></small></span><b id="payTotal"></b></div>
+      <p class="pay-note">Por transferencia o efectivo pagás <b id="payTransf"></b> + envío (10% OFF en productos): <button class="pay-alt" id="payWaAlt2" type="button" style="display:inline;padding:0;">pedilo por WhatsApp</button>.</p>
       <form class="pay-form" id="payForm" novalidate>
         <label>Nombre y apellido<input id="payNombre" name="nombre" autocomplete="name" required maxlength="60"></label>
         <label>WhatsApp<input id="payWa" name="whatsapp" type="tel" autocomplete="tel" placeholder="11 2345-6789" required maxlength="30"></label>
+        <fieldset class="pay-envio full" style="grid-column:1/-1;">
+          <legend>Envío (lo paga quien compra)</legend>
+          <label class="envio-op"><input type="radio" name="envio" value="amba" checked> <span>CABA y GBA</span> <b>$9.900</b></label>
+          <label class="envio-op"><input type="radio" name="envio" value="interior"> <span>Resto del país</span> <b>$14.900</b></label>
+        </fieldset>
         <label class="full">Localidad y provincia<input id="payLocalidad" name="localidad" placeholder="Ej: Olivos, Buenos Aires" required maxlength="80"></label>
         <label class="full">Email (opcional, para el comprobante)<input id="payEmail" name="email" type="email" autocomplete="email" maxlength="120"></label>
         <label class="full" id="payNotasWrap">Sabores del combo u otra aclaración<textarea id="payNotas" name="notas" rows="2" maxlength="300"></textarea></label>
-        <p class="pay-note full" style="grid-column:1/-1;">Con Mercado Pago pagás el <b>precio de lista</b> con tarjeta, débito, dinero en cuenta o efectivo en Mercado Pago. <b>El envío lo paga quien compra</b>: después del pago te escribimos por WhatsApp para coordinarlo y pasarte el costo.</p>
+        <p class="pay-note full" style="grid-column:1/-1;">Con Mercado Pago pagás el <b>precio de lista</b> con tarjeta, débito, dinero en cuenta o efectivo en Mercado Pago. El envío se suma según tu zona y después del pago coordinamos la entrega por WhatsApp.</p>
         <p class="pay-err" id="payErr" role="alert" hidden style="grid-column:1/-1;"></p>
         <button class="mp-btn" id="payBtn" type="submit" style="grid-column:1/-1;">Pagar con Mercado Pago →</button>
       </form>
@@ -1320,6 +1331,7 @@ const ORIGEN = (function(){
 })();
 const payBackdrop = document.getElementById('payBackdrop');
 // Mercado Pago cobra precio de lista; el 10% OFF es solo por transferencia/efectivo (WhatsApp)
+const ENVIOS = { amba: { costo: 9900 }, interior: { costo: 14900 } };
 const precioComboMP = t => Math.ceil((t / 0.9 - 900) / 1000) * 1000 + 900;
 let payPedido = null; // {items:[{id,sabor,qty}], combos:[id]}
 function pedidoDesdeCarrito(){
@@ -1338,7 +1350,10 @@ function openPay(ped){
   const l = lineasPedido(payPedido);
   if(!l.length) return;
   document.getElementById('payResumen').innerHTML = l.map(x => `<div>${x.txt.replace(/</g,'&lt;')} · ${fmt(x.total)}</div>`).join('');
-  document.getElementById('payTotal').textContent = fmt(l.reduce((s,x)=>s+x.total,0));
+  const envio = () => ENVIOS[(document.querySelector('input[name=envio]:checked')||{}).value] || ENVIOS.amba;
+  const pintar = () => { const e = envio(); document.getElementById('payTotal').textContent = fmt(l.reduce((s,x)=>s+x.total,0) + e.costo); document.getElementById('payEnvioTxt').textContent = `(incluye envío ${fmt(e.costo)})`; };
+  document.querySelectorAll('input[name=envio]').forEach(r => r.onchange = pintar);
+  pintar();
   document.getElementById('payTransf').textContent = fmt(l.reduce((s,x)=>s+x.transf,0));
   document.getElementById('payNotasWrap').hidden = !payPedido.combos.length;
   document.getElementById('payErr').hidden = true;
@@ -1367,7 +1382,7 @@ document.getElementById('payForm').addEventListener('submit', async (e) => {
   }
   err.hidden = true; btn.disabled = true; btn.textContent = 'Abriendo Mercado Pago…';
   try{
-    const res = await fetch('/.netlify/functions/crear-pago', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ ...payPedido, comprador, origen: ORIGEN }) });
+    const res = await fetch('/.netlify/functions/crear-pago', { method:'POST', headers:{'content-type':'application/json'}, body: JSON.stringify({ ...payPedido, comprador, origen: ORIGEN, envio: (document.querySelector('input[name=envio]:checked')||{}).value || 'amba' }) });
     const j = await res.json().catch(() => ({}));
     if(!res.ok || !j.url) throw new Error(j.error || 'No pudimos iniciar el pago.');
     try{ localStorage.setItem('base_ultimo_pedido', JSON.stringify({ ref: j.referencia, lineas: lineasPedido(payPedido).map(x=>x.txt), nombre: comprador.nombre, fecha: Date.now() })); }catch(e){}

@@ -60,7 +60,7 @@
   const pendiente = r === 'pendiente' || ['pending','in_process'].includes(estado);
   const T = (eb, h, t, err) => { document.getElementById('eb').textContent = eb; document.getElementById('eb').classList.toggle('err', !!err); document.getElementById('titulo').textContent = h; document.getElementById('texto').innerHTML = t; };
   if(ok){
-    T('Pago aprobado', '¡Listo, ya tenemos tu pedido!', 'Ahora coordinamos el envío. <b>El envío lo paga quien compra</b>: escribinos por WhatsApp con el número de pedido y te pasamos el costo según tu zona.');
+    T('Pago aprobado', '¡Listo, ya tenemos tu pedido!', 'Ahora coordinamos la entrega: escribinos por WhatsApp con el número de pedido y tu dirección. El envío ya está incluido en lo que pagaste.');
     try{ localStorage.removeItem('base_ultimo_pedido'); }catch(e){}
   } else if(pendiente){
     T('Pago pendiente', 'Tu pago está en proceso', 'Mercado Pago todavía lo está acreditando (pasa con efectivo o algunas tarjetas). Te avisamos por WhatsApp apenas se apruebe.');
@@ -73,7 +73,7 @@
     box.hidden = false;
     box.innerHTML = (ref ? `Pedido <span class="ref">${ref.replace(/</g,'')}</span><br>` : '') + (pagoId ? `Pago Mercado Pago <span class="ref">${pagoId.replace(/</g,'')}</span><br>` : '') + lineas.map(l => String(l).replace(/</g,'&lt;')).join('<br>');
   }
-  const msg = ok ? `Hola! Pagué por Mercado Pago el pedido ${ref} (pago ${pagoId}). Quiero coordinar el envío. ¿Cuánto sale a mi zona?`
+  const msg = ok ? `Hola! Pagué por Mercado Pago el pedido ${ref} (pago ${pagoId}). Quiero coordinar la entrega. ¿Qué datos de envío les paso?`
     : pendiente ? `Hola! Tengo un pago pendiente en Mercado Pago, pedido ${ref}. ¿Me avisan cuando se acredite?`
     : `Hola! Quise pagar por Mercado Pago y no se completó${ref ? ' (pedido '+ref+')' : ''}. ¿Me ayudan a terminar la compra?`;
   document.getElementById('wa').href = 'https://wa.me/5491121789431?text=' + encodeURIComponent(msg);

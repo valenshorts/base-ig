@@ -16,7 +16,7 @@ export default async (req) => {
     id: p.id, estado: p.status, detalle: p.status_detail, total: p.transaction_amount,
     neto: p.transaction_details?.net_received_amount, referencia: p.external_reference,
     comprador: p.metadata?.nombre, whatsapp: p.metadata?.whatsapp, localidad: p.metadata?.localidad,
-    origen: p.metadata?.origen, items: (p.additional_info?.items || []).map(i => `${i.quantity}x ${i.title}`),
+    origen: p.metadata?.origen, envio: p.metadata?.envio, items: (p.additional_info?.items || []).map(i => `${i.quantity}x ${i.title}`),
   }));
   return new Response('ok');
 };
