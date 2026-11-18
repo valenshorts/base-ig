@@ -2,10 +2,14 @@
 import { getStore } from '@netlify/blobs';
 
 export default async () => {
-  const store = getStore('clics');
-  const { blobs } = await store.list({ prefix: 'bio/' });
+  const store = getStore({ name: 'clics', consistency: 'strong' });
   const dias = {};
-  for (const b of blobs) dias[b.key.slice(4)] = Number(await store.get(b.key)) || 0;
+  try {
+    const { blobs } = await store.list({ prefix: 'bio/' });
+    for (const b of blobs) dias[b.key.slice(4)] = Number(await store.get(b.key)) || 0;
+  } catch (e) {
+    return new Response(JSON.stringify({ error: String(e) }), { status: 500, headers: { 'content-type': 'application/json' } });
+  }
   const total = Object.values(dias).reduce((a, b) => a + b, 0);
   return new Response(JSON.stringify({ total, dias }, null, 1), { headers: { 'content-type': 'application/json', 'Cache-Control': 'no-store' } });
 };
