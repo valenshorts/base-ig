@@ -276,6 +276,7 @@
   #waBackdrop{z-index:95;}
   #payBackdrop{z-index:96;}
   .pay-body [hidden]{display:none!important;}
+  body.mp-off .mp-btn{display:none!important;}
   .pay-body{padding:26px 24px;display:flex;flex-direction:column;gap:14px;clear:both;}
   .pay-body h3{font-size:22px;}
   .pay-resumen{background:var(--black);border:1px solid var(--line);padding:12px 14px;font-size:13px;line-height:1.6;color:#c9c9cc;max-height:150px;overflow:auto;}
@@ -1376,7 +1377,21 @@ document.getElementById('payForm').addEventListener('submit', async (e) => {
     btn.disabled = false; btn.textContent = 'Pagar con Mercado Pago →';
   }
 });
-document.getElementById('sendOrder').addEventListener('click', () => openPay());
+// Mostrar el pago online solo si está activo (en modo prueba, solo con ?prueba-mp en la URL)
+let MP_ON = false;
+(async function(){
+  let pruebaLocal = false;
+  try{ if(location.search.includes('prueba-mp')) sessionStorage.setItem('base_prueba_mp','1'); pruebaLocal = sessionStorage.getItem('base_prueba_mp')==='1'; }catch(e){}
+  try{
+    const j = await fetch('/.netlify/functions/crear-pago').then(r=>r.json());
+    MP_ON = j.activo && (j.modo==='produccion' || pruebaLocal);
+  }catch(e){ MP_ON = false; }
+  document.body.classList.toggle('mp-off', !MP_ON);
+  const send = document.getElementById('sendOrder');
+  if(!MP_ON) send.textContent = 'Comprar por WhatsApp';
+})();
+document.body.classList.add('mp-off');
+document.getElementById('sendOrder').addEventListener('click', () => MP_ON ? openPay() : openWaModal());
 document.getElementById('waClose').addEventListener('click', closeWaModal);
 waBackdrop.addEventListener('click', e => { if(e.target===waBackdrop) closeWaModal(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape' && waBackdrop.style.display==='flex') closeWaModal(); });

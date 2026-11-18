@@ -9,7 +9,12 @@ const SITIO = process.env.URL || 'https://basesuplementos.netlify.app';
 const r = (status, body) => new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json' } });
 const limpiar = (s, n = 80) => String(s ?? '').replace(/[\u0000-\u001f<>]/g, '').trim().slice(0, n);
 
+// MP_MODO: "produccion" muestra el pago a todos. Cualquier otro valor (o vacío) = modo prueba:
+// el botón solo aparece entrando a la web con ?prueba-mp, así ningún cliente paga a la cuenta de prueba.
+const MODO = () => (process.env.MP_MODO === 'produccion' ? 'produccion' : 'prueba');
+
 export default async (req) => {
+  if (req.method === 'GET') return r(200, { activo: !!process.env.MP_ACCESS_TOKEN, modo: MODO() });
   if (req.method !== 'POST') return r(405, { error: 'Usá POST' });
   const token = process.env.MP_ACCESS_TOKEN;
   if (!token) return r(503, { error: 'El pago online todavía no está configurado. Escribinos por WhatsApp.' });
@@ -66,6 +71,5 @@ export default async (req) => {
     console.error('Mercado Pago rechazó la preferencia', res.status, JSON.stringify(j).slice(0, 500));
     return r(502, { error: 'Mercado Pago no respondió bien. Probá de nuevo o escribinos por WhatsApp.' });
   }
-  const prueba = token.startsWith('TEST-');
-  return r(200, { url: prueba ? (j.sandbox_init_point || j.init_point) : j.init_point, referencia, prueba });
+  return r(200, { url: j.init_point, referencia, prueba: MODO() === 'prueba' });
 };
