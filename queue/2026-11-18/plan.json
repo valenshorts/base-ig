@@ -1,0 +1,7 @@
+{
+ "fecha": "2026-11-18",
+ "items": [
+  {"id": "historia3", "tipo": "historia", "hora": "18:00", "imagen": "historia3.jpg"},
+  {"id": "reel", "tipo": "reel", "hora": "20:30", "video": "reel.mp4", "texto": "reel.txt"}
+ ]
+}
