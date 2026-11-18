@@ -19,6 +19,13 @@ Contenido de cada día (7 piezas):
 
 Los dos posts del día tienen que ser de temas distintos y formatos distintos. Variá productos (proteínas, creatinas, magnesio, omega 3, colágeno, pre-entreno, combos).
 
+## Paso 0 (siempre primero): ¿qué día armo y qué falta?
+- **Fecha objetivo:** el día siguiente en hora Argentina. EXCEPCIÓN: si la corrida empieza entre las 00:00 y las 10:00 hora Argentina (corrida de recuperación), la fecha objetivo es HOY.
+- Fijate si ya hay contenido para esa fecha: carpeta `queue/AAAA-MM-DD` en `main` o un PR abierto desde `post/AAAA-MM-DD`.
+  - Si ya está completo (las 7 piezas del día) → **no hagas nada, no abras PR y no avises**: terminá en silencio. (La rutina corre dos veces por día como respaldo: 16:31 y 21:13.)
+  - Si está a medias (por ejemplo, una corrida anterior falló o Valentín cargó piezas sueltas) → **conservá tal cual lo que ya existe** (archivos y entradas de `plan.json`, sin regenerarlos) y armá solo las piezas que faltan, agregándolas al `plan.json` existente. En `kit/historial.md` actualizá la línea de esa fecha en vez de duplicarla.
+  - Si no hay nada → día completo, como siempre.
+
 ## Pasos
 1. Leé `kit/README.md` (identidad, reglas, productos y precios), `kit/historial.md` (temas usados: no repetir), `kit/ejemplo_visual.py` (estándar de estilo), `kit/ventana_whey.py` y `kit/proteina_quiz.py` (carruseles), `kit/historia_horario.py` (historia) y `README.md`. Instalá lo necesario: `pip install -r requirements.txt` y `python -m playwright install chromium` si hace falta; verificá que exista la fuente Noto Color Emoji (`fc-list | grep -i emoji`; si no, `apt-get install -y fonts-noto-color-emoji`).
 2. Temas: que NO estén en `kit/historial.md` ni sean los ya armados (presentación, creatinas, proteínas, combos, magnesio, quiz de combos). Nada obvio: el dato tiene que sorprender o hacer pensar. Datos de nutrición solo de fuentes confiables (ISSN, EFSA, USDA FoodData Central, tablas oficiales), sin inventar cifras ni valores de etiquetas no verificados. Sin promesas de salud (solo frases del README).
