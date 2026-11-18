@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu pago · BASE Suplementos</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{--black:#0B0B0C;--panel:#111112;--line:#2a2a2d;--lima:#C6F432;--white:#fff;--gray:#8b8b8f;--err:#ff8a7a}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--black);color:var(--white);font-family:Montserrat,Arial,sans-serif;min-height:100vh;display:flex;flex-direction:column;
+    background-image:radial-gradient(ellipse 700px 400px at 85% 0%,rgba(198,244,50,.12),transparent 60%)}
+  header{padding:18px max(20px,env(safe-area-inset-left));border-bottom:1px solid var(--line)}
+  .brand{display:inline-flex;align-items:center;gap:10px;color:var(--white);text-decoration:none}
+  .brand span{font-family:'Archivo Black',sans-serif;font-size:22px;line-height:1;display:flex;flex-direction:column}
+  .brand small{font-family:Montserrat,sans-serif;font-weight:600;font-size:8.5px;letter-spacing:.32em;color:var(--lima);margin-top:3px}
+  main{flex:1;width:100%;max-width:620px;margin:0 auto;padding:48px max(20px,env(safe-area-inset-right)) 40px max(20px,env(safe-area-inset-left));display:flex;flex-direction:column;gap:18px}
+  .eb{display:flex;align-items:center;gap:10px;color:var(--lima);font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+  .eb:before{content:"";width:18px;height:2px;background:var(--lima)}
+  .eb.err{color:var(--err)} .eb.err:before{background:var(--err)}
+  h1{font-weight:900;text-transform:uppercase;font-size:clamp(30px,7vw,46px);line-height:1;letter-spacing:-.01em;text-wrap:balance}
+  p{color:#c9c9cc;font-size:15px;line-height:1.55}
+  p b{color:var(--white)}
+  .box{background:var(--panel);border:1px solid var(--line);padding:16px 18px;font-size:14px;line-height:1.7;color:#c9c9cc}
+  .box .ref{font-weight:700;color:var(--white);font-variant-numeric:tabular-nums}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--lima);color:#111;font-weight:800;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:14px 20px;text-decoration:none}
+  .btn.ghost{background:transparent;color:var(--white);border:1px solid #3a3a3d}
+  .btn:focus-visible{outline:2px solid var(--lima);outline-offset:2px}
+  .legal{color:var(--gray);font-size:11px;font-weight:600;letter-spacing:.04em;text-align:center;padding:24px 20px;border-top:1px solid var(--line)}
+</style>
+</head>
+<body>
+<header><a class="brand" href="/"><svg viewBox="0 0 36 36" width="34" height="34" aria-hidden="true"><rect width="36" height="36" fill="#C6F432"/><rect x="10" y="25" width="16" height="4" fill="#0B0B0C"/></svg><span>BASE<small>SUPLEMENTOS</small></span></a></header>
+<main>
+  <div class="eb" id="eb">Tu pago</div>
+  <h1 id="titulo">Revisando tu pago…</h1>
+  <p id="texto"></p>
+  <div class="box" id="pedido" hidden></div>
+  <div class="btns">
+    <a class="btn" id="wa" href="https://wa.me/5491121789431" target="_blank" rel="noopener">Coordinar envío por WhatsApp</a>
+    <a class="btn ghost" href="/">Volver a la tienda</a>
+  </div>
+  <p style="font-size:13px;color:var(--gray)">WhatsApp 11 2178-9431 · solo mensajes</p>
+</main>
+<div class="legal">SUPLEMENTA DIETAS INSUFICIENTES. CONSULTE A SU MÉDICO Y/O FARMACÉUTICO.</div>
+<script>
+(function(){
+  const q = new URLSearchParams(location.search);
+  const r = q.get('r'), estado = q.get('collection_status') || q.get('status') || '';
+  const pagoId = q.get('payment_id') || q.get('collection_id') || '';
+  const ref = q.get('external_reference') || '';
+  let pedido = null;
+  try{ pedido = JSON.parse(localStorage.getItem('base_ultimo_pedido') || 'null'); }catch(e){}
+  if(pedido && ref && pedido.ref !== ref) pedido = null;
+  const ok = r === 'ok' && (estado === 'approved' || !estado);
+  const pendiente = r === 'pendiente' || ['pending','in_process'].includes(estado);
+  const T = (eb, h, t, err) => { document.getElementById('eb').textContent = eb; document.getElementById('eb').classList.toggle('err', !!err); document.getElementById('titulo').textContent = h; document.getElementById('texto').innerHTML = t; };
+  if(ok){
+    T('Pago aprobado', '¡Listo, ya tenemos tu pedido!', 'Ahora coordinamos el envío. <b>El envío lo paga quien compra</b>: escribinos por WhatsApp con el número de pedido y te pasamos el costo según tu zona.');
+    try{ localStorage.removeItem('base_ultimo_pedido'); }catch(e){}
+  } else if(pendiente){
+    T('Pago pendiente', 'Tu pago está en proceso', 'Mercado Pago todavía lo está acreditando (pasa con efectivo o algunas tarjetas). Te avisamos por WhatsApp apenas se apruebe.');
+  } else {
+    T('Pago no realizado', 'El pago no se completó', 'No se te cobró nada. Podés volver a intentarlo desde la tienda o mandarnos el pedido por WhatsApp.', true);
+  }
+  const lineas = pedido && pedido.lineas ? pedido.lineas : [];
+  const box = document.getElementById('pedido');
+  if(ref || pagoId || lineas.length){
+    box.hidden = false;
+    box.innerHTML = (ref ? `Pedido <span class="ref">${ref.replace(/</g,'')}</span><br>` : '') + (pagoId ? `Pago Mercado Pago <span class="ref">${pagoId.replace(/</g,'')}</span><br>` : '') + lineas.map(l => String(l).replace(/</g,'&lt;')).join('<br>');
+  }
+  const msg = ok ? `Hola! Pagué por Mercado Pago el pedido ${ref} (pago ${pagoId}). Quiero coordinar el envío. ¿Cuánto sale a mi zona?`
+    : pendiente ? `Hola! Tengo un pago pendiente en Mercado Pago, pedido ${ref}. ¿Me avisan cuando se acredite?`
+    : `Hola! Quise pagar por Mercado Pago y no se completó${ref ? ' (pedido '+ref+')' : ''}. ¿Me ayudan a terminar la compra?`;
+  document.getElementById('wa').href = 'https://wa.me/5491121789431?text=' + encodeURIComponent(msg);
+  if(!ok) document.getElementById('wa').textContent = 'Escribinos por WhatsApp';
+})();
+</script>
+</body>
+</html>

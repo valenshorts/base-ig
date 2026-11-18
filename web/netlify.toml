@@ -1,0 +1,10 @@
+# Sitio de BASE (basesuplementos.netlify.app). En Netlify: base directory = web
+[build]
+  command = "python3 tools/extraer_catalogo.py"
+  publish = "public"
+  functions = "netlify/functions"
+  # Solo vuelve a publicar cuando cambia algo de web/ (el resto del repo es Instagram)
+  ignore = "git diff --quiet $CACHED_COMMIT_REF $COMMIT_REF -- ."
+
+[functions]
+  node_bundler = "esbuild"
