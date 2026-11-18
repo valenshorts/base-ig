@@ -1,4 +1,5 @@
 // Crea el pago de Mercado Pago (Checkout Pro) para el carrito o un producto suelto.
+// Cobra precio de lista (sin el 10% OFF, que queda para transferencia o efectivo por WhatsApp).
 // El navegador solo manda ids, sabores y cantidades: los precios salen de catalogo.json,
 // que se genera desde index.html en cada deploy. La clave de Mercado Pago vive en la
 // variable de entorno MP_ACCESS_TOKEN de Netlify (nunca en el código).

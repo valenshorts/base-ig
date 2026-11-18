@@ -559,7 +559,7 @@
       <div style="background:var(--panel);padding:26px 22px;">
         <div style="font-family:'Montserrat',sans-serif;color:var(--gold);font-size:12px;margin-bottom:10px;">02</div>
         <div style="font-family:'Montserrat',sans-serif;font-size:17px;margin-bottom:6px;">Pagá online o por WhatsApp</div>
-        <div style="color:var(--gray);font-size:13.5px;">Tocá “Finalizar compra” y pagá con Mercado Pago al precio con 10% OFF, o mandanos el pedido por WhatsApp.</div>
+        <div style="color:var(--gray);font-size:13.5px;">Tocá “Finalizar compra” y pagá con Mercado Pago, o mandanos el pedido por WhatsApp y pagás por transferencia con 10% OFF.</div>
       </div>
       <div style="background:var(--panel);padding:26px 22px;">
         <div style="font-family:'Montserrat',sans-serif;color:var(--gold);font-size:12px;margin-bottom:10px;">03</div>
@@ -578,8 +578,8 @@
     </div>
     <div class="faq">
       <details><summary>¿Los productos son originales?</summary><p>Sí. Todos los productos son originales, sellados y de las marcas oficiales. Si tenés dudas sobre algún producto en particular, escribinos y te mandamos fotos.</p></details>
-      <details><summary>¿Cómo hago un pedido?</summary><p>Elegí los productos (y el sabor) en el catálogo y tocá <b>Finalizar compra</b>. Podés pagar en el momento con <b>Mercado Pago</b> o mandarnos el pedido por WhatsApp y coordinamos el pago.</p></details>
-      <details><summary>¿Qué formas de pago aceptan?</summary><p><b>Mercado Pago</b> desde la web (tarjeta, débito o dinero en cuenta) al precio con <b>10% OFF</b>, o transferencia y efectivo con el mismo descuento. Pidiendo por WhatsApp también podés pagar con tarjeta al precio normal.</p></details>
+      <details><summary>¿Cómo hago un pedido?</summary><p>Elegí los productos (y el sabor) en el catálogo y tocá <b>Finalizar compra</b>. Podés pagar en el momento con <b>Mercado Pago</b> (precio de lista) o mandarnos el pedido por WhatsApp y pagar por transferencia o efectivo con <b>10% OFF</b>.</p></details>
+      <details><summary>¿Qué formas de pago aceptan?</summary><p><b>Mercado Pago</b> desde la web (tarjeta, débito o dinero en cuenta) al precio de lista, o <b>transferencia y efectivo con 10% OFF</b> pidiendo por WhatsApp.</p></details>
       <details><summary>¿Hacen envíos?</summary><p>Sí, a todo el país. <b>El envío lo paga quien compra</b>: lo coordinamos por WhatsApp según tu zona y te pasamos el costo.</p></details>
       <details><summary>¿Cuánto tarda en llegar?</summary><p>Depende de la zona y del medio de envío que elijas. Te confirmamos el plazo al momento de coordinar el pedido.</p></details>
       <details><summary>¿Venden por mayor?</summary><p>Sí, trabajamos con gimnasios, dietéticas, tiendas y revendedores. Escribinos por WhatsApp y te pasamos la lista mayorista.</p></details>
@@ -641,18 +641,19 @@
       <div class="eyebrow">Pago online</div>
       <h3 id="payTitle">Pagá con Mercado Pago</h3>
       <div class="pay-resumen" id="payResumen"></div>
-      <div class="pay-total"><span>Total con 10% OFF</span><b id="payTotal"></b></div>
+      <div class="pay-total"><span>Total con Mercado Pago</span><b id="payTotal"></b></div>
+      <p class="pay-note">Por transferencia o efectivo pagás <b id="payTransf"></b> (10% OFF): <button class="pay-alt" id="payWaAlt2" type="button" style="display:inline;padding:0;">pedilo por WhatsApp</button>.</p>
       <form class="pay-form" id="payForm" novalidate>
         <label>Nombre y apellido<input id="payNombre" name="nombre" autocomplete="name" required maxlength="60"></label>
         <label>WhatsApp<input id="payWa" name="whatsapp" type="tel" autocomplete="tel" placeholder="11 2345-6789" required maxlength="30"></label>
         <label class="full">Localidad y provincia<input id="payLocalidad" name="localidad" placeholder="Ej: Olivos, Buenos Aires" required maxlength="80"></label>
         <label class="full">Email (opcional, para el comprobante)<input id="payEmail" name="email" type="email" autocomplete="email" maxlength="120"></label>
         <label class="full" id="payNotasWrap">Sabores del combo u otra aclaración<textarea id="payNotas" name="notas" rows="2" maxlength="300"></textarea></label>
-        <p class="pay-note full" style="grid-column:1/-1;">Pagás el <b>precio de transferencia (10% OFF)</b> con tarjeta, débito, dinero en cuenta o efectivo en Mercado Pago. <b>El envío lo paga quien compra</b>: después del pago te escribimos por WhatsApp para coordinarlo y pasarte el costo.</p>
+        <p class="pay-note full" style="grid-column:1/-1;">Con Mercado Pago pagás el <b>precio de lista</b> con tarjeta, débito, dinero en cuenta o efectivo en Mercado Pago. <b>El envío lo paga quien compra</b>: después del pago te escribimos por WhatsApp para coordinarlo y pasarte el costo.</p>
         <p class="pay-err" id="payErr" role="alert" hidden style="grid-column:1/-1;"></p>
         <button class="mp-btn" id="payBtn" type="submit" style="grid-column:1/-1;">Pagar con Mercado Pago →</button>
       </form>
-      <button class="pay-alt" id="payWaAlt" type="button">Prefiero pedir por WhatsApp</button>
+      <button class="pay-alt" id="payWaAlt" type="button">Prefiero pagar por transferencia (pedido por WhatsApp)</button>
     </div>
   </div>
 </div>
@@ -1317,6 +1318,8 @@ const ORIGEN = (function(){
   return o || 'web';
 })();
 const payBackdrop = document.getElementById('payBackdrop');
+// Mercado Pago cobra precio de lista; el 10% OFF es solo por transferencia/efectivo (WhatsApp)
+const precioComboMP = t => Math.ceil((t / 0.9 - 900) / 1000) * 1000 + 900;
 let payPedido = null; // {items:[{id,sabor,qty}], combos:[id]}
 function pedidoDesdeCarrito(){
   return {
@@ -1325,8 +1328,8 @@ function pedidoDesdeCarrito(){
   };
 }
 function lineasPedido(ped){
-  const l = ped.items.map(it => { const p = CATALOG.find(x => String(x.id)===String(it.id)); return { txt: `${it.qty}× ${p.marca} — ${p.nombre||p.producto} ${p.presentacion||p.formato}${it.sabor?' ('+it.sabor+')':''}`, total: p.precio_transferencia*it.qty }; });
-  ped.combos.forEach(id => { const c = COMBOS.find(x=>x.id===id); l.push({ txt: `1× ${c.nombre}`, total: c.precio_combo }); });
+  const l = ped.items.map(it => { const p = CATALOG.find(x => String(x.id)===String(it.id)); return { txt: `${it.qty}× ${p.marca} — ${p.nombre||p.producto} ${p.presentacion||p.formato}${it.sabor?' ('+it.sabor+')':''}`, total: p.precio_normal*it.qty, transf: p.precio_transferencia*it.qty }; });
+  ped.combos.forEach(id => { const c = COMBOS.find(x=>x.id===id); l.push({ txt: `1× ${c.nombre}`, total: precioComboMP(c.precio_combo), transf: c.precio_combo }); });
   return l;
 }
 function openPay(ped){
@@ -1335,6 +1338,7 @@ function openPay(ped){
   if(!l.length) return;
   document.getElementById('payResumen').innerHTML = l.map(x => `<div>${x.txt.replace(/</g,'&lt;')} · ${fmt(x.total)}</div>`).join('');
   document.getElementById('payTotal').textContent = fmt(l.reduce((s,x)=>s+x.total,0));
+  document.getElementById('payTransf').textContent = fmt(l.reduce((s,x)=>s+x.transf,0));
   document.getElementById('payNotasWrap').hidden = !payPedido.combos.length;
   document.getElementById('payErr').hidden = true;
   closeDetail(); closeWaModal();
@@ -1346,7 +1350,7 @@ function closePay(){ payBackdrop.style.display='none'; document.body.classList.r
 document.getElementById('payClose').addEventListener('click', closePay);
 payBackdrop.addEventListener('click', e => { if(e.target===payBackdrop) closePay(); });
 document.addEventListener('keydown', e => { if(e.key==='Escape' && payBackdrop.style.display==='flex') closePay(); });
-document.getElementById('payWaAlt').addEventListener('click', () => { closePay(); openWaModal(); });
+['payWaAlt','payWaAlt2'].forEach(i => document.getElementById(i).addEventListener('click', () => { closePay(); openWaModal(); }));
 document.getElementById('payForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const err = document.getElementById('payErr'), btn = document.getElementById('payBtn');
