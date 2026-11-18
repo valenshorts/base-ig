@@ -1,0 +1,13 @@
+{
+  "voz": false,
+  "musica": true,
+  "escenas": [
+    {"plantilla": "v2_gancho", "dur": 2.42, "transicion": "corte"},
+    {"plantilla": "v2_conflicto", "dur": 2.9, "transicion": "corte"},
+    {"plantilla": "v2_semana", "dur": 2.42, "transicion": "corte"},
+    {"plantilla": "v2_respuesta", "dur": 2.9, "transicion": "corte"},
+    {"plantilla": "v2_cuanto", "dur": 1.94, "transicion": "corte"},
+    {"plantilla": "v2_producto", "dur": 2.9, "transicion": "corte"},
+    {"plantilla": "v2_cierre", "dur": 2.42, "transicion": "corte"}
+  ]
+}
