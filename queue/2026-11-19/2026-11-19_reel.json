@@ -1,0 +1,113 @@
+{
+  "voz": false,
+  "musica": true,
+  "escenas": [
+    {
+      "plantilla": "gancho",
+      "dur": 1.94,
+      "datos": {
+        "eb": "En 20 segundos",
+        "texto": "¿De dónde sale la [whey]?",
+        "foto": "whey_star_2lb_vainilla"
+      }
+    },
+    {
+      "plantilla": "rafaga",
+      "dur": 1.94,
+      "datos": {
+        "palabras": [
+          "Sale de",
+          "un lugar",
+          "que no",
+          "esperás"
+        ]
+      }
+    },
+    {
+      "plantilla": "quiz",
+      "dur": 4.35,
+      "datos": {
+        "pregunta": "¿De dónde sale?",
+        "opciones": [
+          [
+            "🧪",
+            "Laboratorio"
+          ],
+          [
+            "🌱",
+            "Soja"
+          ],
+          [
+            "🧀",
+            "Queso"
+          ],
+          [
+            "🥚",
+            "Huevo"
+          ]
+        ],
+        "correcta": 2
+      }
+    },
+    {
+      "plantilla": "dato",
+      "dur": 2.42,
+      "datos": {
+        "eb": "Whey = suero",
+        "texto": "El líquido que *queda* al hacer *queso*",
+        "fuente": "U.S. Dairy Export Council",
+        "emoji": "💧"
+      }
+    },
+    {
+      "plantilla": "numero",
+      "dur": 2.42,
+      "datos": {
+        "texto": "De la proteína de la leche",
+        "valor": 20,
+        "unidad": "% es whey"
+      }
+    },
+    {
+      "plantilla": "comparacion",
+      "dur": 2.42,
+      "datos": {
+        "texto": "Elegí la *tuya*",
+        "izq": {
+          "foto": "mp_whey_brownie",
+          "texto": "MyProtein 1 kg",
+          "precio": "$78.900"
+        },
+        "der": {
+          "foto": "whey_star_2lb_vainilla",
+          "texto": "Star 2 lb",
+          "precio": "$81.900"
+        }
+      }
+    },
+    {
+      "plantilla": "producto",
+      "dur": 2.42,
+      "datos": {
+        "foto": "ena_prot_vain",
+        "nombre": "ENA 100% Whey",
+        "detalle": "907 g · transferencia o efectivo",
+        "precio": "$66.900",
+        "chip": "907 G"
+      }
+    },
+    {
+      "plantilla": "cierre",
+      "dur": 2.9,
+      "datos": {
+        "texto": "Pedí la *tuya*",
+        "fotos": [
+          "whey_star_2lb_vainilla",
+          "ena_prot_vain",
+          "mp_whey_brownie",
+          "platinum1kg_vainilla"
+        ]
+      }
+    }
+  ]
+}
