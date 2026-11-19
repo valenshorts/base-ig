@@ -67,7 +67,7 @@ Calendario semanal base (familia de cada post; el tema lo elegís vos sin repeti
 
 Mientras dure el sorteo, sus piezas reemplazan a las de su día como dice la sección de la campaña.
 
-Publicaciones fijadas (máximo 3 en Instagram): «Somos BASE · Cómo comprar» (`kit/fijado_somos_base.py`), «BASE Mayoristas» y el sorteo hasta el 28/11. Destacados: Catálogo, Ofertas, Mayoristas, Envíos, Cómo comprar (`kit/destacados.py`); si cambian precios de combos, rehacé «Ofertas» y avisale a Valentín para reemplazarla en el destacado. No hace falta repetirlas; si cambian precios, envíos o pagos, avisale a Valentín para rehacer la fijada.
+Publicaciones fijadas (máximo 3 en Instagram): «Cómo comprar» con Mercado Pago y WhatsApp (`kit/fijado_como_comprar.py`, desde el 19/11), «BASE Mayoristas» y el sorteo hasta el 28/11. Destacados: Catálogo, Ofertas, Mayoristas (`kit/destacados.py`), Comprar y Envíos (`kit/destacados_compra.py`, con Mercado Pago); si cambian precios de combos, rehacé «Ofertas» y avisale a Valentín para reemplazarla en el destacado. No hace falta repetirlas; si cambian precios, envíos o pagos, avisale a Valentín para rehacer la fijada.
 
 Historias: productos más grandes, menos espacio vacío, precio y CTA claros; 1 o 2 historias B2B por semana («¿Tenés un negocio? Escribinos MAYORISTA»).
 
