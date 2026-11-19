@@ -1,0 +1,111 @@
+{
+  "voz": false,
+  "musica": true,
+  "escenas": [
+    {
+      "plantilla": "gancho",
+      "dur": 1.94,
+      "datos": {
+        "eb": "Esto o aquello",
+        "texto": "¿Clara o yema?",
+        "emoji": "🍳"
+      }
+    },
+    {
+      "plantilla": "rafaga",
+      "dur": 1.94,
+      "datos": {
+        "palabras": [
+          "Cada 100 g",
+          "¿cuál tiene",
+          "más",
+          "proteína?"
+        ]
+      }
+    },
+    {
+      "plantilla": "quiz",
+      "dur": 4.35,
+      "datos": {
+        "pregunta": "¿Cuál gana cada 100 g?",
+        "opciones": [
+          [
+            "<svg viewBox=\"0 0 200 160\" width=\"190\" height=\"152\"><path d=\"M30 92C10 60 40 22 82 30c22-22 70-18 86 10 30 10 30 58 6 76-16 30-72 34-100 20C40 140 14 120 30 92Z\" fill=\"#F7F7F2\"/></svg>",
+            "Clara"
+          ],
+          [
+            "<svg viewBox=\"0 0 160 160\" width=\"140\" height=\"140\"><circle cx=\"80\" cy=\"82\" r=\"62\" fill=\"#F6B21A\" stroke=\"#E29A0C\" stroke-width=\"6\"/><ellipse cx=\"60\" cy=\"60\" rx=\"18\" ry=\"11\" fill=\"#FFE08A\" transform=\"rotate(-30 60 60)\"/></svg>",
+            "Yema"
+          ],
+          [
+            "⚖️",
+            "Empatan"
+          ]
+        ],
+        "correcta": 1
+      }
+    },
+    {
+      "plantilla": "dato",
+      "dur": 2.42,
+      "datos": {
+        "eb": "Pero ojo",
+        "texto": "En un huevo gana la *clara*: pesa casi el *doble* que la yema",
+        "fuente": "USDA FoodData Central",
+        "emoji": "<svg viewBox=\"0 0 200 160\" width=\"260\" height=\"208\"><path d=\"M30 92C10 60 40 22 82 30c22-22 70-18 86 10 30 10 30 58 6 76-16 30-72 34-100 20C40 140 14 120 30 92Z\" fill=\"#F7F7F2\"/></svg>"
+      }
+    },
+    {
+      "plantilla": "numero",
+      "dur": 2.42,
+      "datos": {
+        "texto": "Huevo grande entero",
+        "valor": 6.3,
+        "decimales": 1,
+        "unidad": "g de proteína"
+      }
+    },
+    {
+      "plantilla": "comparacion",
+      "dur": 2.42,
+      "datos": {
+        "texto": "Proteína *fácil*",
+        "izq": {
+          "foto": "ena_prot_vain",
+          "texto": "ENA Whey 907 g",
+          "precio": "$66.900"
+        },
+        "der": {
+          "foto": "whey_star_2lb_vainilla",
+          "texto": "Star Whey 2 lb",
+          "precio": "$81.900"
+        }
+      }
+    },
+    {
+      "plantilla": "producto",
+      "dur": 2.42,
+      "datos": {
+        "foto": "ena_prot_vain",
+        "foto2": "ena_crea_neutra",
+        "nombre": "Combo ENA",
+        "detalle": "Proteína 907 g + creatina 300 g",
+        "precio": "$85.900",
+        "chip": "AHORRÁS $7.900"
+      }
+    },
+    {
+      "plantilla": "cierre",
+      "dur": 2.9,
+      "datos": {
+        "texto": "Pedí la *tuya*",
+        "fotos": [
+          "ena_prot_vain",
+          "whey_star_2lb_vainilla",
+          "mp_whey_brownie",
+          "platinum1kg_vainilla"
+        ]
+      }
+    }
+  ]
+}
