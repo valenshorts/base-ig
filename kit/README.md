@@ -40,8 +40,11 @@ Cada flyer tiene que ser **visual, con imágenes y emojis**, no solo texto:
 - Leyenda legal en cada pieza: "SUPLEMENTA DIETAS INSUFICIENTES. CONSULTE A SU MÉDICO Y/O FARMACÉUTICO."
 - No decir "más vendido" ni "en stock" sin datos. No inventar estudios ni cifras.
 - Llamado a la acción principal: **ver el catálogo en la web ("link en la bio")**, tanto en el flyer como en el texto del post. WhatsApp 11 2178-9431 va como canal de consulta, **solo por mensaje** (no llamadas). Instagram @basesuplementos.ar.
-- Precios: los de transferencia o efectivo (10% OFF vs. tarjeta).
-- Envíos: a todo el país; el costo del envío lo paga quien compra (confirmado por Valentín 17/11). Pedidos y pagos se coordinan por WhatsApp 11 2178-9431 (solo mensajes). Venta por unidad y por mayor (mayoristas: escribir MAYORISTA).
+- Cómo comprar (desde el 18/11/2026, dos formas):
+  1. ONLINE en la web (link en la bio) con Mercado Pago (tarjeta, débito, dinero en cuenta o efectivo en MP) a PRECIO DE LISTA. Combos por MP: Star $111.900 · ENA $95.900 · Gold $98.900 · 2× Creatina Star $49.900. Envío fijo que se suma en el pago: CABA y GBA $9.900 · resto del país $14.900. Después del pago se coordina la entrega por WhatsApp.
+  2. POR WHATSAPP 11 2178-9431 (solo mensajes) con transferencia o efectivo y 10% OFF (los precios de la tabla de abajo son estos). El costo del envío se pasa con el pedido.
+- Precios publicados en piezas: los de transferencia o efectivo (10% OFF vs. lista/tarjeta), aclarando «por transferencia o efectivo». Si se nombra Mercado Pago, aclarar que ahí es precio de lista.
+- Envíos a todo el país, a cargo de quien compra. Venta por unidad y por mayor (mayoristas: escribir MAYORISTA). No prometer cuotas ni promociones de Mercado Pago.
 - Español rioplatense con voseo. Los textos del post terminan con una pregunta.
 
 ## Productos (archivo en assets/ → producto · precio transferencia/efectivo, según la web de BASE)
