@@ -54,6 +54,36 @@
    "tipo": "historia",
    "hora": "21:30",
    "imagen": "historia4.jpg"
+  },
+  {
+   "id": "como_comprar",
+   "tipo": "post",
+   "hora": "18:25",
+   "imagenes": [
+    "como_comprar_1.jpg",
+    "como_comprar_2.jpg",
+    "como_comprar_3.jpg",
+    "como_comprar_4.jpg"
+   ],
+   "texto": "como_comprar.txt"
+  },
+  {
+   "id": "destacado_comprar_online",
+   "tipo": "historia",
+   "hora": "18:25",
+   "imagen": "destacado_comprar_online.jpg"
+  },
+  {
+   "id": "destacado_comprar_whatsapp",
+   "tipo": "historia",
+   "hora": "18:25",
+   "imagen": "destacado_comprar_whatsapp.jpg"
+  },
+  {
+   "id": "destacado_envios",
+   "tipo": "historia",
+   "hora": "18:25",
+   "imagen": "destacado_envios.jpg"
   }
  ]
 }
