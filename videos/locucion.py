@@ -18,9 +18,10 @@ import argparse, json, os, subprocess, sys, tempfile, urllib.request, urllib.err
 AQUI = os.path.dirname(os.path.abspath(__file__))
 MARCA = json.load(open(os.path.join(AQUI, 'marca.json'), encoding='utf-8'))
 VOZ = MARCA.get('voz_valentin', {})
-VOICE_ID = os.environ.get('ELEVENLABS_VOICE_ID') or VOZ.get('voice_id', 'QmpwT5HT1XfyskglZrAE')
+VOICE_ID = os.environ.get('ELEVENLABS_VOICE_ID') or VOZ.get('voice_id', 'qmpwT5HT1XfyskglZrAE')
 MODELOS = [m for m in [os.environ.get('ELEVENLABS_MODEL')] + VOZ.get('modelos', ['eleven_v3', 'eleven_multilingual_v2']) if m]
 BEAT = 60 / MARCA.get('bpm', 124)
+HOSTS = ['api.elevenlabs.io', 'api.us.elevenlabs.io']   # la cuenta de Valentín usa api.us
 
 
 def run(*a):
@@ -36,13 +37,13 @@ def tts(texto, previo, siguiente, dst):
     if not key:
         raise SystemExit('Falta ELEVENLABS_API_KEY (y no hay tomas grabadas).')
     ultimo = None
-    for modelo in MODELOS:
+    for host, modelo in [(h, m) for h in HOSTS for m in MODELOS]:
         cuerpo = {'text': texto, 'model_id': modelo,
                   'voice_settings': {'stability': VOZ.get('stability', 0.5), 'similarity_boost': VOZ.get('similarity', 0.75)}}
         if modelo != 'eleven_v3':   # v3 no acepta texto previo/siguiente
             cuerpo.update(previous_text=previo or None, next_text=siguiente or None)
         req = urllib.request.Request(
-            f'https://api.elevenlabs.io/v1/text-to-speech/{VOICE_ID}?output_format=mp3_44100_128',
+            f'https://{host}/v1/text-to-speech/{VOICE_ID}?output_format=mp3_44100_128',
             data=json.dumps(cuerpo).encode(), method='POST',
             headers={'xi-api-key': key, 'Content-Type': 'application/json', 'Accept': 'audio/mpeg'})
         try:
@@ -50,7 +51,7 @@ def tts(texto, previo, siguiente, dst):
                 open(dst, 'wb').write(r.read())
             return modelo
         except urllib.error.HTTPError as e:
-            ultimo = f'{modelo}: HTTP {e.code} {e.read()[:200]!r}'
+            ultimo = f'{host} {modelo}: HTTP {e.code} {e.read()[:200]!r}'
             print('  probando otro modelo →', ultimo)
     raise SystemExit('ElevenLabs no generó la voz: ' + str(ultimo))
 

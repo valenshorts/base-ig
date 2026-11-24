@@ -9,7 +9,7 @@
   "velocidad": "+12%",
   "voz_valentin": {
     "nombre": "Valentin (voz clonada de Valentín en ElevenLabs)",
-    "voice_id": "QmpwT5HT1XfyskglZrAE",
+    "voice_id": "qmpwT5HT1XfyskglZrAE",
     "modelos": [
       "eleven_v3",
       "eleven_multilingual_v2"
