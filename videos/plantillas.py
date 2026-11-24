@@ -210,7 +210,7 @@ def quiz(d, ctx, pregunta, opciones, correcta, revelar=None):
     return page(body, d, ctx, css, golpes=[rev]), snd
 
 
-def dato(d, ctx, texto, eb='', fuente='', emoji=''):
+def dato(d, ctx, texto, eb='', fuente='', emoji='', extra='', extra_emoji='✅'):
     """Afirmación grande con subrayado lima que se dibuja debajo, ícono y la fuente."""
     css = """
     .col{position:absolute;left:70px;right:70px;top:470px;display:flex;flex-direction:column;align-items:center;gap:34px}
@@ -218,7 +218,13 @@ def dato(d, ctx, texto, eb='', fuente='', emoji=''):
     .ul{width:740px;height:18px;background:var(--l);transform-origin:left;animation:draw .5s ease-out var(--t) both}
     @keyframes draw{from{transform:scaleX(0)}to{transform:scaleX(1)}}
     .src{font-size:32px;font-weight:700;color:#a9a9ad;animation:up .4s ease-out var(--t) both}
-    .ico{font-size:230px;animation:pop .45s cubic-bezier(.2,1.6,.4,1) var(--t) both,bob 1.4s ease-in-out 1.2s infinite alternate}"""
+    .ico{font-size:230px;animation:pop .45s cubic-bezier(.2,1.6,.4,1) var(--t) both,bob 1.4s ease-in-out 1.2s infinite alternate}
+    .fix{position:absolute;left:90px;right:90px;top:1300px;min-height:230px;background:var(--l);color:var(--bk);display:flex;align-items:center;justify-content:center;gap:28px;
+      font-family:'Archivo Black';text-transform:uppercase;line-height:1;padding:0 30px;transform:rotate(-3deg);box-shadow:0 0 80px rgba(198,244,50,.45);
+      animation:fixin .5s cubic-bezier(.2,1.5,.4,1) var(--tf) both,fixpulse .48s ease-in-out calc(var(--tf) + .5s) infinite alternate}
+    .fix .e{font-size:120px}
+    @keyframes fixin{from{opacity:0;transform:scale(2.2) rotate(-12deg)}to{opacity:1;transform:rotate(-3deg)}}
+    @keyframes fixpulse{from{transform:rotate(-3deg) scale(1)}to{transform:rotate(-3deg) scale(1.04)}}"""
     words, t = palabras(texto, 0.1, 0.13)
     body = '<div class="col">' + (f'<div class="eb">{eb}</div>' if eb else '')
     body += f'<div class="k" style="font-size:100px">{words}</div>'
@@ -228,7 +234,17 @@ def dato(d, ctx, texto, eb='', fuente='', emoji=''):
     if fuente:
         body += f'<div class="src" style="--t:{t + .4:.2f}s">Fuente: {fuente}</div>'
     body += '</div>'
-    return page(body, d, ctx, css), [(0, 'whoosh'), (t, 'swipe')]
+    snd = [(0, 'whoosh'), (t, 'swipe')]
+    golpes = []
+    if extra:   # la corrección/remate que entra con golpe abajo (llena la mitad de abajo, más dopamina)
+        tf = max(t + .7, d * .45)
+        n = len(extra)
+        fs = 92 if n <= 14 else 74 if n <= 22 else 60
+        body += f'<div class="fix" style="--tf:{tf:.2f}s;font-size:{fs}px"><span class="e">{extra_emoji}</span><span>{extra}</span></div>'
+        body += burst(540, 1415, tf + .05, 26, 8) + flash(tf)
+        snd += [(tf, 'stamp'), (tf, 'hit')]
+        golpes = [tf]
+    return page(body, d, ctx, css, golpes=golpes), snd
 
 
 def cierre(d, ctx, texto='Pedí la *tuya*', boton='LINK EN LA BIO', fotos=()):
