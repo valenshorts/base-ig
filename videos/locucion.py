@@ -198,7 +198,7 @@ def main():
     cmd = ['ffmpeg', '-v', 'error', '-y', '-i', a.video]
     for _, _, _, f, _, _ in tomas:
         cmd += ['-i', f]
-    if g.get('subtitulos', True):
+    if g.get('subtitulos', False):   # Valentín: no, ya hay texto en pantalla
         ass = os.path.join(tmp, 'subs.ass')
         subtitulos_ass(todas, ass, total)
         fuentes = os.path.join(AQUI, 'fonts')
