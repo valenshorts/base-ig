@@ -1,0 +1,22 @@
+{
+  "voz": false,
+  "musica": true,
+  "escenas": [
+    {"plantilla": "gancho", "dur": 1.94,
+     "datos": {"eb": "En 20 segundos", "texto": "¿Cuánta [proteína] por día?", "foto": "whey_star_2lb_vainilla"}},
+    {"plantilla": "rafaga", "dur": 1.94,
+     "datos": {"palabras": ["Depende", "de", "tu", "peso"]}},
+    {"plantilla": "dato", "dur": 2.42,
+     "datos": {"eb": "Si entrenás", "texto": "Entre *1,4* y *2* gramos por kilo, por día", "fuente": "ISSN 2017", "emoji": "⚖️"}},
+    {"plantilla": "quiz", "dur": 4.35,
+     "datos": {"pregunta": "Pesás 70 kg: ¿cuánta te toca?",
+               "opciones": [["🥚", "20 g"], ["🍗", "98 a 140 g"], ["🥩", "300 g"], ["🤷", "Igual que todos"]],
+               "correcta": 1}},
+    {"plantilla": "numero", "dur": 1.94,
+     "datos": {"texto": "Repartí en 3 o", "valor": 4, "unidad": "comidas al día", "emoji": "🍽️"}},
+    {"plantilla": "producto", "dur": 2.42,
+     "datos": {"foto": "whey_star_2lb_vainilla", "nombre": "Star Whey 2 lb", "detalle": "Transferencia o efectivo", "precio": "$81.900", "chip": "PROTEÍNA"}},
+    {"plantilla": "cierre", "dur": 2.9,
+     "datos": {"texto": "Pedí la *tuya*", "fotos": ["whey_star_2lb_vainilla", "ena_truemade_vainilla", "on_gold_standard", "platinum1kg_vainilla"]}}
+  ]
+}
