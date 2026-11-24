@@ -4,16 +4,17 @@
  "escenas": [
   {
    "plantilla": "gancho",
-   "dur": 1.94,
+   "dur": 1.936,
    "datos": {
     "eb": "Hacé la cuenta",
     "texto": "¿Cuánto [rinde] tu creatina?",
     "foto": "creatina_gold_300g"
-   }
+   },
+   "voz": "¿Cuánto te rinde la creatina?"
   },
   {
    "plantilla": "rafaga",
-   "dur": 1.94,
+   "dur": 1.936,
    "datos": {
     "palabras": [
      "No es",
@@ -21,21 +22,23 @@
      "es",
      "matemática"
     ]
-   }
+   },
+   "voz": "Hacé la cuenta conmigo."
   },
   {
    "plantilla": "dato",
-   "dur": 2.42,
+   "dur": 2.903,
    "datos": {
     "eb": "La porción",
     "texto": "3 g de creatina por día",
     "fuente": "EFSA: al menos 3 g/día",
     "emoji": "🥄"
-   }
+   },
+   "voz": "La porción es de tres gramos por día."
   },
   {
    "plantilla": "quiz",
-   "dur": 4.35,
+   "dur": 6.775,
    "datos": {
     "pregunta": "Doypack de 300 g: ¿cuántos días?",
     "opciones": [
@@ -56,22 +59,25 @@
       "Ni idea"
      ]
     ],
-    "correcta": 2
-   }
+    "correcta": 2,
+    "revelar": 3.4
+   },
+   "voz": "Un doypack de trescientos gramos te dura cien días."
   },
   {
    "plantilla": "numero",
-   "dur": 1.94,
+   "dur": 2.903,
    "datos": {
     "texto": "El pote de 1 kg:",
     "valor": 333,
     "unidad": "días",
     "emoji": "🏆"
-   }
+   },
+   "voz": "Y el pote de un kilo, más de trescientos treinta."
   },
   {
    "plantilla": "comparacion",
-   "dur": 2.9,
+   "dur": 2.42,
    "datos": {
     "texto": "¿Cuál te *conviene*?",
     "izq": {
@@ -84,11 +90,12 @@
      "texto": "1 kg · 333 días",
      "precio": "$57.900"
     }
-   }
+   },
+   "voz": "¿Cuál te conviene más?"
   },
   {
    "plantilla": "cierre",
-   "dur": 2.9,
+   "dur": 2.903,
    "datos": {
     "texto": "Pedí la *tuya*",
     "fotos": [
@@ -97,7 +104,9 @@
      "gold_crea1kg",
      "on_creatine"
     ]
-   }
+   },
+   "voz": "Pedí la tuya, link en la bio."
   }
- ]
+ ],
+ "voz_propia": true
 }
