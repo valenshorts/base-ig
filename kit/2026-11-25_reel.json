@@ -9,7 +9,8 @@
     "eb": "Hacé la cuenta",
     "texto": "¿Cuánto [rinde] tu creatina?",
     "foto": "creatina_gold_300g"
-   }
+   },
+   "voz": "¿Cuánto te rinde la creatina?"
   },
   {
    "plantilla": "rafaga",
@@ -21,7 +22,8 @@
      "es",
      "matemática"
     ]
-   }
+   },
+   "voz": "Hacé la cuenta conmigo."
   },
   {
    "plantilla": "dato",
@@ -31,7 +33,8 @@
     "texto": "3 g de creatina por día",
     "fuente": "EFSA: al menos 3 g/día",
     "emoji": "🥄"
-   }
+   },
+   "voz": "La porción es de tres gramos por día."
   },
   {
    "plantilla": "quiz",
@@ -58,7 +61,8 @@
     ],
     "correcta": 2,
     "revelar": 3.4
-   }
+   },
+   "voz": "Un doypack de trescientos gramos te dura cien días."
   },
   {
    "plantilla": "numero",
@@ -68,7 +72,8 @@
     "valor": 333,
     "unidad": "días",
     "emoji": "🏆"
-   }
+   },
+   "voz": "Y el pote de un kilo, más de trescientos treinta."
   },
   {
    "plantilla": "comparacion",
@@ -85,7 +90,8 @@
      "texto": "1 kg · 333 días",
      "precio": "$57.900"
     }
-   }
+   },
+   "voz": "¿Cuál te conviene más?"
   },
   {
    "plantilla": "cierre",
@@ -98,7 +104,9 @@
      "gold_crea1kg",
      "on_creatine"
     ]
-   }
+   },
+   "voz": "Pedí la tuya, link en la bio."
   }
- ]
+ ],
+ "voz_propia": true
 }
