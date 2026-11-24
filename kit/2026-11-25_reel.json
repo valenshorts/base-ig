@@ -4,7 +4,7 @@
  "escenas": [
   {
    "plantilla": "gancho",
-   "dur": 1.94,
+   "dur": 1.936,
    "datos": {
     "eb": "Hacé la cuenta",
     "texto": "¿Cuánto [rinde] tu creatina?",
@@ -13,7 +13,7 @@
   },
   {
    "plantilla": "rafaga",
-   "dur": 1.94,
+   "dur": 1.936,
    "datos": {
     "palabras": [
      "No es",
@@ -25,7 +25,7 @@
   },
   {
    "plantilla": "dato",
-   "dur": 2.42,
+   "dur": 2.903,
    "datos": {
     "eb": "La porción",
     "texto": "3 g de creatina por día",
@@ -35,7 +35,7 @@
   },
   {
    "plantilla": "quiz",
-   "dur": 4.35,
+   "dur": 6.775,
    "datos": {
     "pregunta": "Doypack de 300 g: ¿cuántos días?",
     "opciones": [
@@ -56,12 +56,13 @@
       "Ni idea"
      ]
     ],
-    "correcta": 2
+    "correcta": 2,
+    "revelar": 3.4
    }
   },
   {
    "plantilla": "numero",
-   "dur": 1.94,
+   "dur": 2.903,
    "datos": {
     "texto": "El pote de 1 kg:",
     "valor": 333,
@@ -71,7 +72,7 @@
   },
   {
    "plantilla": "comparacion",
-   "dur": 2.9,
+   "dur": 2.42,
    "datos": {
     "texto": "¿Cuál te *conviene*?",
     "izq": {
@@ -88,7 +89,7 @@
   },
   {
    "plantilla": "cierre",
-   "dur": 2.9,
+   "dur": 2.903,
    "datos": {
     "texto": "Pedí la *tuya*",
     "fotos": [
