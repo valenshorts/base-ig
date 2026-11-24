@@ -1,0 +1,67 @@
+{
+ "voz": false,
+ "musica": true,
+ "voz_propia": true,
+ "escenas": [
+  {
+   "plantilla": "gancho",
+   "dur": 2.903,
+   "datos": {
+    "eb": "Si tomás creatina",
+    "texto": "3 [errores] comunes",
+    "foto": "creatina_star_300g"
+   },
+   "voz": "Si tomás creatina, ojo con estos tres errores."
+  },
+  {
+   "plantilla": "dato",
+   "dur": 4.355,
+   "datos": {
+    "eb": "Error 1",
+    "texto": "Tomarla solo los días que entrenás",
+    "fuente": "ISSN 2017",
+    "emoji": "🏋️",
+    "extra": "Todos los días"
+   },
+   "voz": "Uno: tomarla solo cuando entrenás. Va todos los días."
+  },
+  {
+   "plantilla": "dato",
+   "dur": 5.323,
+   "datos": {
+    "eb": "Error 2",
+    "texto": "Creer que la carga es obligatoria",
+    "fuente": "ISSN 2017",
+    "emoji": "⏳",
+    "extra": "3 g/día también llega"
+   },
+   "voz": "Dos: creer que la carga es obligatoria. Con tres gramos por día también llegás."
+  },
+  {
+   "plantilla": "producto",
+   "dur": 3.871,
+   "datos": {
+    "foto": "creatina_gold_300g",
+    "nombre": "Error 3: a ojo",
+    "detalle": "Medí la porción",
+    "precio": "3 g",
+    "chip": "PORCIÓN"
+   },
+   "voz": "Tres: tomarla a ojo. Medí la porción: tres gramos."
+  },
+  {
+   "plantilla": "cierre",
+   "dur": 3.871,
+   "datos": {
+    "texto": "Mandáselo a *alguien*",
+    "fotos": [
+     "creatina_star_300g",
+     "creatina_gold_300g",
+     "gold_crea1kg",
+     "on_creatine"
+    ]
+   },
+   "voz": "Mandáselo al que la toma solo los días de gym."
+  }
+ ]
+}

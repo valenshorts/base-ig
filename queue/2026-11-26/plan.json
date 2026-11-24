@@ -1,0 +1,12 @@
+{
+ "fecha": "2026-11-26",
+ "items": [
+  {
+   "id": "reel",
+   "tipo": "reel",
+   "hora": "20:30",
+   "video": "reel.mp4",
+   "texto": "reel.txt"
+  }
+ ]
+}
