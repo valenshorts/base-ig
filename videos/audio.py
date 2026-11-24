@@ -2,6 +2,7 @@
 Audio generado por código (100 % propio, sin derechos de terceros): una base electrónica a tempo y efectos
 sincronizados con las animaciones (golpes, swipes, pops, cuenta regresiva).
 """
+import os
 import wave
 import numpy as np
 
@@ -61,8 +62,17 @@ def bass(f, n):
 SFX = {}
 
 
+VOL_REAL = {'whoosh': .6, 'swipe': .5, 'hit': .8, 'stamp': .8, 'pop': .5, 'tick': .5, 'ding': .6}
+
+
 def _sfx(nombre):
     if nombre in SFX:
+        return SFX[nombre]
+    real = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sfx', f'{nombre}.wav')
+    if os.path.exists(real):   # efectos reales (Mixkit, ver sfx/LICENCIAS.md)
+        with wave.open(real) as w:
+            x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(np.float64) / 32768
+        SFX[nombre] = x * VOL_REAL.get(nombre, .7)
         return SFX[nombre]
     if nombre == 'whoosh':
         n = int(.45 * SR)
