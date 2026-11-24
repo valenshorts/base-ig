@@ -1,0 +1,103 @@
+{
+ "voz": false,
+ "musica": true,
+ "escenas": [
+  {
+   "plantilla": "gancho",
+   "dur": 1.94,
+   "datos": {
+    "eb": "Hacé la cuenta",
+    "texto": "¿Cuánto [rinde] tu creatina?",
+    "foto": "creatina_gold_300g"
+   }
+  },
+  {
+   "plantilla": "rafaga",
+   "dur": 1.94,
+   "datos": {
+    "palabras": [
+     "No es",
+     "magia",
+     "es",
+     "matemática"
+    ]
+   }
+  },
+  {
+   "plantilla": "dato",
+   "dur": 2.42,
+   "datos": {
+    "eb": "La porción",
+    "texto": "3 g de creatina por día",
+    "fuente": "EFSA: al menos 3 g/día",
+    "emoji": "🥄"
+   }
+  },
+  {
+   "plantilla": "quiz",
+   "dur": 4.35,
+   "datos": {
+    "pregunta": "Doypack de 300 g: ¿cuántos días?",
+    "opciones": [
+     [
+      "⏳",
+      "30 días"
+     ],
+     [
+      "⏳",
+      "60 días"
+     ],
+     [
+      "⏳",
+      "100 días"
+     ],
+     [
+      "🤷",
+      "Ni idea"
+     ]
+    ],
+    "correcta": 2
+   }
+  },
+  {
+   "plantilla": "numero",
+   "dur": 1.94,
+   "datos": {
+    "texto": "El pote de 1 kg:",
+    "valor": 333,
+    "unidad": "días",
+    "emoji": "🏆"
+   }
+  },
+  {
+   "plantilla": "comparacion",
+   "dur": 2.9,
+   "datos": {
+    "texto": "¿Cuál te *conviene*?",
+    "izq": {
+     "foto": "creatina_gold_300g",
+     "texto": "300 g · 100 días",
+     "precio": "$22.900"
+    },
+    "der": {
+     "foto": "gold_crea1kg",
+     "texto": "1 kg · 333 días",
+     "precio": "$57.900"
+    }
+   }
+  },
+  {
+   "plantilla": "cierre",
+   "dur": 2.9,
+   "datos": {
+    "texto": "Pedí la *tuya*",
+    "fotos": [
+     "creatina_gold_300g",
+     "creatina_star_300g",
+     "gold_crea1kg",
+     "on_creatine"
+    ]
+   }
+  }
+ ]
+}
