@@ -52,3 +52,9 @@ siempre arriba. Reglas: precios de `kit/README.md`, sin promesas de salud, CTA "
 `"voz": true` y un `"texto"` por escena genera locución con edge-tts (voz es-AR). Es un servicio de Microsoft sin
 licencia comercial clara: para usarla en publicidad conviene grabar la voz propia. Por defecto va sin voz
 (los reels con texto en pantalla + música funcionan igual o mejor sin sonido).
+
+
+## Voz de Valentín (ElevenLabs)
+- Voz clonada «Valentin» (voice_id en `marca.json` → `voz_valentin`). Guion con `"voz_propia": true` y `"voz": "…"` por escena.
+- `python videos/locucion.py guion.json reel_sin_voz.mp4 reel_con_voz.mp4 [--tomas carpeta]`: genera cada frase con la API (variable `ELEVENLABS_API_KEY`) o usa `escenaN.mp3` de la carpeta, recorta silencios, ubica cada frase al comienzo de su escena (en un quiz, después de revelar) y baja la música mientras habla.
+- En la cola lo hace solo el workflow `voz` (`scripts/voz_dia.py`); marca `queue/AAAA-MM-DD/voz.ok`.

@@ -6,5 +6,15 @@
   "lima": "#C6F432",
   "bpm": 124,
   "voz": "es-AR-TomasNeural",
-  "velocidad": "+12%"
+  "velocidad": "+12%",
+  "voz_valentin": {
+    "nombre": "Valentin (voz clonada de Valentín en ElevenLabs)",
+    "voice_id": "QmpwT5HT1XfyskglZrAE",
+    "modelos": [
+      "eleven_v3",
+      "eleven_multilingual_v2"
+    ],
+    "stability": 0.5,
+    "similarity": 0.75
+  }
 }
