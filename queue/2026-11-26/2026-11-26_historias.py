@@ -1,4 +1,4 @@
-"""Historias del 26/11/2026 (1080×1920): 11:00 ¿cómo pesás tu comida? · 15:00 producto del día Creatina Gold 1 kg
+"""Historias del 26/11/2026 (1080×1920): 11:00 ¿cómo pesás tu comida? · 15:00 producto del día Omega 3 Gold 30 caps
 · 18:00 sorteo (quedan 2 días, contando hoy) · 21:30 recordatorio del reel «3 errores con la creatina».
 Precios: kit/README.md. Frase de creatina permitida (EFSA). Sorteo: campanas/sorteo-creatinas/bases.md."""
 import sys, os; sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -40,6 +40,11 @@ CAT = f'<div class="vote" style="top:1585px;font-size:28px;letter-spacing:1.5px;
 LEG = f'<div class="legal" style="bottom:auto;top:1690px">{LEGAL_TXT}</div>'
 
 
+BAL = ('<svg viewBox="0 0 120 120" width="130" height="130"><rect x="38" y="18" width="44" height="8" fill="#d6d6d8"/>'
+       '<rect x="56" y="26" width="8" height="18" fill="#9a9a9e"/><rect x="14" y="44" width="92" height="62" fill="#e8e8ea"/>'
+       '<rect x="30" y="58" width="60" height="26" fill="#0B0B0C"/><rect x="38" y="66" width="44" height="10" fill="#C6F432"/></svg>')
+
+
 def op4(ops, top):
     return f'<div class="op4" style="top:{top}px">' + ''.join(
         f'<div class="o"><div class="ph">{E(e)}</div><div class="lt">{l}</div><div class="nm">{n}</div></div>' for l, e, n in ops) + '</div>'
@@ -51,16 +56,16 @@ def tile(f, chip, ft):
 # 11:00 · ARRANQUE (pregunta A/B/C/D, adelanta el tema del post de las 13:00 sin dar la respuesta)
 h1 = ST + '<div class="eb" style="top:270px">Pregunta del jueves</div>'
 h1 += '<div class="t" style="top:325px;font-size:84px">¿Cómo pesás<br>tu <span class="box">comida?</span></div>'
-h1 += op4([('A', '⚖️', 'En crudo'), ('B', '🍽️', 'En cocido'), ('C', '👀', 'A ojo'), ('D', '🤷', 'No la peso')], 640)
+h1 += op4([('A', BAL, 'En crudo'), ('B', '🍽️', 'En cocido'), ('C', '👀', 'A ojo'), ('D', '🤷', 'No la peso')], 640)
 h1 += f'<div class="vote" style="top:1370px">Respondé esta historia con<br><span>A, B, C o D</span> {E("💬",34)}</div>'
 h1 += f'<div class="vote" style="top:1530px;font-size:28px;color:#bdbdc0">A las 13:00 te contamos por qué importa</div>'
 h1 += LEG
 
 # 15:00 · PRODUCTO DEL DÍA
 h2 = ST + '<div class="eb" style="top:270px">Producto del día</div>'
-h2 += '<div class="t" style="top:325px;font-size:92px">Creatina<br><span class="box">Gold 1 kg</span></div>'
-h2 += tiles([('gold_crea1kg', pf('Creatina Gold 1 kg', '$57.900'))], 620, 760, 560).replace('class="tiles"', 'class="tiles pd"')
-h2 += '<div class="tipb" style="top:1400px">Con al menos 3 g por día, aumenta el rendimiento físico en series sucesivas de ejercicios cortos de alta intensidad.<br><b>Precio por transferencia o efectivo.</b></div>'
+h2 += '<div class="t" style="top:325px;font-size:92px">Omega 3<br><span class="box">Gold</span></div>'
+h2 += tiles([('gold_omega3', pf('Omega 3 Gold 30 caps', '$28.900'))], 620, 760, 560).replace('class="tiles"', 'class="tiles pd"')
+h2 += '<div class="tipb" style="top:1400px">Mirá en la etiqueta cuánto EPA y DHA trae cada porción.<br><b>Precio por transferencia o efectivo.</b></div>'
 h2 += CAT + LEG
 
 # 18:00 · SORTEO (quedan 2 días: hoy jueves y mañana viernes 27/11)
@@ -70,7 +75,7 @@ h3 += '<div class="cd" style="top:560px"><div class="n"><b>2</b><span>DÍAS</spa
 h3 += ('<div class="tiles sz" style="top:920px;--w:430px;--h:360px;--g:26px">'
        + tile('creatina_gold_300g', '×2', cf('Creatina Gold 300 g', 28))
        + tile('creatina_star_300g', '×1', cf('Creatina Star 300 g', 28)) + '</div>')
-h3 += f'<div class="vote" style="top:1400px">{E("👉",34)} Participá en el<br><span>post del sorteo</span></div>'
+h3 += f'<div class="vote" style="top:1400px">{E("👉",34)} Participá en el <span>post del sorteo</span><br><span style="color:#d6d6d8;font-size:30px">fijado en nuestro perfil</span></div>'
 h3 += f'<div class="vote" style="top:1530px;font-size:28px;color:#bdbdc0">Seguinos, dale me gusta y comentá etiquetando a 2 personas</div>'
 h3 += LEG
 

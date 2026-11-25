@@ -49,11 +49,17 @@ ST = '''<style>
 .mini img{height:250px;filter:drop-shadow(0 16px 22px rgba(0,0,0,.6))}
 </style>'''
 
+BALANZA = ('<svg viewBox="0 0 120 120" width="{w}" height="{w}"><rect x="38" y="18" width="44" height="8" fill="#d6d6d8"/>'
+           '<rect x="56" y="26" width="8" height="18" fill="#9a9a9e"/><rect x="14" y="44" width="92" height="62" fill="#e8e8ea"/>'
+           '<rect x="30" y="58" width="60" height="26" fill="#0B0B0C"/><rect x="38" y="66" width="44" height="10" fill="#C6F432"/></svg>')
+PECHUGA = ('<svg viewBox="0 0 120 120" width="140" height="140"><path d="M20 70 C14 40 40 18 70 22 C98 26 108 52 98 74 C88 98 52 104 34 94 C26 90 22 82 20 70 Z" fill="#F2C6A8" stroke="#D99A78" stroke-width="4"/>'
+           '<path d="M40 54 C55 46 72 46 86 54 M38 70 C55 62 74 62 90 70" stroke="#E0A988" stroke-width="4" fill="none"/></svg>')
+
 
 def fila(top, emoji, nombre, a_lab, a, b_lab, b, on='b'):
     ca = ' on' if on == 'a' else ''
     cb = ' on' if on == 'b' else ''
-    return (f'<div class="row" style="top:{top}px"><div class="ic">{E(emoji)}<b>{nombre}</b></div>'
+    return (f'<div class="row" style="top:{top}px"><div class="ic">{emoji if emoji.startswith("<svg") else E(emoji)}<b>{nombre}</b></div>'
             f'<div class="c{ca}"><small>{a_lab}</small><b>{a}<i>g</i></b></div><div class="ar">→</div>'
             f'<div class="c{cb}"><small>{b_lab}</small><b>{b}<i>g</i></b></div></div>')
 
@@ -77,15 +83,15 @@ a2 += '<div class="src" style="top:1135px">Fideos tipo spaghetti y arroz blanco,
 # 3 · El porqué + el giro: con la carne pasa al revés
 a3 = ST + '<div class="eb" style="top:190px">¿Por qué?</div>'
 a3 += '<div class="t" style="top:240px;font-size:72px">El agua<br><span class="box">cambia el peso</span></div>'
-a3 += f'<div class="why" style="top:450px">{E("💧")}<p>Al hervirlos <b>absorben agua</b>: pesan más, pero la proteína es la misma. Cada 100 g rinde menos.</p></div>'
+a3 += f'<div class="why" style="top:450px">{E("💧")}<p>Los fideos y el arroz, al hervirlos, <b>absorben agua</b>: pesan más, pero la proteína es la misma. Cada 100 g rinde menos.</p></div>'
 a3 += '<div class="txt" style="top:660px;font-size:33px"><b>Con la carne pasa al revés:</b> al cocinarse <em>pierde agua.</em></div>'
-a3 += fila(790, '🍗', 'Pechuga', 'cruda', '22,5', 'asada', '31')
+a3 += fila(790, PECHUGA, 'Pechuga', 'cruda', '22,5', 'asada', '31')
 a3 += '<div class="src" style="top:1070px">Pechuga de pollo sin piel, cada 100 g.<br>Fuente: <b>USDA FoodData Central</b>.</div>'
 
 # 4 · Qué hacer + cierre (guardar / compartir / comentar)
 a4 = ST + '<div class="eb" style="top:190px">Cómo no errarle</div>'
 a4 += '<div class="t" style="top:240px;font-size:72px">Pesá y leé<br><span class="box">igual</span></div>'
-a4 += (f'<div class="st" style="top:450px">{E("⚖️")}<p><b>Pesá en crudo</b>y usá la tabla del <em>paquete.</em></p></div>'
+a4 += (f'<div class="st" style="top:450px"><div style="flex:0 0 100px;display:flex;justify-content:center">{BALANZA.format(w=96)}</div><p><b>Pesá en crudo</b>y usá la tabla del <em>paquete.</em></p></div>'
        f'<div class="st" style="top:645px">{E("🍽️")}<p><b>¿Pesás en cocido?</b>Usá valores de alimento <em>cocido.</em></p></div>')
 a4 += (f'<div class="cta" style="top:880px">{E("📌",30)} <span>Guardalo</span> para tu próxima comida<br>'
        f'{E("📲",30)} <span>Mandáselo</span> al que cuenta la proteína del plato<br>'
@@ -115,5 +121,5 @@ b3 += ('<div style="position:absolute;left:410px;right:80px;top:470px"><div styl
 b3 += (f'<div class="st" style="top:790px;height:140px">{E("💬")}<p><b>Por WhatsApp</b><em>10% OFF</em> pagando por transferencia o efectivo.</p></div>'
        f'<div class="st" style="top:950px;height:140px">{E("💳")}<p><b>Online en la web</b>Con <em>Mercado Pago</em>, a precio de lista.</p></div>')
 b3 += '<div class="fine" style="top:1110px">Envíos a todo el país, a cargo de quien compra. WhatsApp 11 2178-9431, solo mensajes.</div>'
-b3 += f'<div class="btn" style="left:80px;bottom:76px;font-size:27px">{E("🛒",27)} PEDÍ LA TUYA · LINK EN LA BIO {ARROW}</div>'
+b3 += f'<div class="btn" style="left:80px;bottom:76px;font-size:27px">{E("🛒",27)} VER CATÁLOGO · LINK EN LA BIO {ARROW}</div>'
 print(render([page(1, b1, True, 3), page(2, b2, True, 3), page(3, b3, False, 3)], f'{OUT}/post2'))
