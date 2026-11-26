@@ -1,0 +1,100 @@
+{
+ "voz": false,
+ "musica": true,
+ "voz_propia": true,
+ "escenas": [
+  {
+   "plantilla": "gancho",
+   "dur": 2.419,
+   "datos": {
+    "eb": "Yogur griego o común",
+    "texto": "¿Cuál tiene más [proteína]?",
+    "emoji": "🥣"
+   },
+   "voz": "¿Yogur griego o común?"
+  },
+  {
+   "plantilla": "quiz",
+   "dur": 5.806,
+   "datos": {
+    "pregunta": "Cada 100 g, ¿cuál tiene más?",
+    "opciones": [
+     [
+      "🥣",
+      "Griego"
+     ],
+     [
+      "🥣",
+      "Común"
+     ],
+     [
+      "⚖️",
+      "Igual"
+     ],
+     [
+      "🤷",
+      "Ni idea"
+     ]
+    ],
+    "correcta": 0,
+    "revelar": 3.4
+   },
+   "voz": "El griego: casi el doble."
+  },
+  {
+   "plantilla": "numero",
+   "dur": 2.903,
+   "datos": {
+    "texto": "Griego cada 100 g",
+    "valor": 10,
+    "unidad": "g de proteína",
+    "emoji": "🥄"
+   },
+   "voz": "Diez gramos cada cien, contra casi seis."
+  },
+  {
+   "plantilla": "dato",
+   "dur": 3.387,
+   "datos": {
+    "eb": "¿Por qué?",
+    "texto": "Se *cuela*: sale parte del suero",
+    "fuente": "USDA (valores cada 100 g)",
+    "emoji": "💧",
+    "extra": "Más concentrado"
+   },
+   "voz": "Porque lo cuelan: le sacan parte del suero."
+  },
+  {
+   "plantilla": "comparacion",
+   "dur": 2.903,
+   "datos": {
+    "texto": "Transferencia o *efectivo*",
+    "izq": {
+     "foto": "ena_prot_vain",
+     "texto": "ENA Whey 907 g",
+     "precio": "$66.900"
+    },
+    "der": {
+     "foto": "ena_truemade_vainilla",
+     "texto": "ENA Truemade 930 g",
+     "precio": "$90.900"
+    }
+   },
+   "voz": "¿Le sumás whey? Elegí la tuya."
+  },
+  {
+   "plantilla": "cierre",
+   "dur": 4.355,
+   "datos": {
+    "texto": "Mandáselo a *alguien*",
+    "fotos": [
+     "ena_prot_vain",
+     "ena_truemade_vainilla",
+     "whey_star_2lb_vainilla",
+     "mp_whey_brownie"
+    ]
+   },
+   "voz": "Mandáselo al que desayuna yogur. Pedí la tuya, link en la bio."
+  }
+ ]
+}
